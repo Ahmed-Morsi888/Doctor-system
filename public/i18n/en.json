@@ -22,6 +22,7 @@
   "app": {
     "title": "nextBriteFE",
     "welcome": "Welcome",
+    "dashboard": "Dashboard",
     "description": "A modern Angular application"
   },
   "menu": {
