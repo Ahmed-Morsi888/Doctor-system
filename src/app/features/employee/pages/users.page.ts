@@ -20,34 +20,23 @@
 
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UsersStore } from '../data-access/store/users.store';
 import { UserCardComponent } from '../components/user-card.component';
 import { User } from '../data-access/services/create-user.service';
 
 @Component({
   selector: 'app-users-page',
   standalone: true,
-  imports: [CommonModule, UserCardComponent],
+  imports: [CommonModule],
   template: `
     <div class="users-page">
       <h1>Users Management</h1>
 
-      @if (store.isLoading()) {
-        <p>Loading...</p>
-      }
-
-      @if (store.error()) {
-        <div class="error">{{ store.error() }}</div>
-      }
-
       <div class="users-list">
-        @for (user of store.users(); track user.id) {
-          <app-user-card
+          <!-- <app-user-card
             [user]="user"
             (userClick)="onUserClick($event)"
             (userDelete)="onUserDelete($event)"
-          />
-        }
+          /> -->
       </div>
 
       <div class="add-user-form">
@@ -92,7 +81,7 @@ export class UsersPageComponent implements OnInit {
   newUserName = signal('');
   newUserEmail = signal('');
 
-  constructor(public store: UsersStore) { }
+  constructor() { }
 
   ngOnInit(): void {
     // Initialize page data if needed
@@ -100,7 +89,6 @@ export class UsersPageComponent implements OnInit {
 
   onUserClick(user: User): void {
     // Handle user click - update store
-    this.store.setSelectedUserId(user.id);
   }
 
   onUserDelete(user: User): void {
@@ -113,11 +101,6 @@ export class UsersPageComponent implements OnInit {
     if (!this.newUserName().trim() || !this.newUserEmail().trim()) {
       return;
     }
-
-    await this.store.addUser({
-      name: this.newUserName(),
-      email: this.newUserEmail()
-    });
 
     // Clear form
     this.newUserName.set('');
