@@ -1,3 +1,6 @@
+@import 'tailwindcss';
+@import 'tailwindcss-primeui';
+
 /* Global CSS Variables - Design System */
 :root {
   /* Colors */
