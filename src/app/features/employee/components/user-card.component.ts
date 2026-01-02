@@ -26,23 +26,18 @@ import { User } from '../data-access/services/create-user.service';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="user-card" (click)="onClick()">
-      <h3>{{ user.name }}</h3>
-      <p>{{ user.email }}</p>
-      <button (click)="onDelete($event)" type="button">Delete</button>
+    <div class="m-2 cursor-pointer rounded border border-gray-300 p-4 transition-colors hover:bg-gray-100" (click)="onClick()">
+      <h3 class="mb-2 text-lg font-semibold text-slate-900">{{ user.name }}</h3>
+      <p class="mb-4 text-sm text-slate-600">{{ user.email }}</p>
+      <button 
+        class="rounded bg-red-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-red-600" 
+        (click)="onDelete($event)" 
+        type="button"
+      >
+        Delete
+      </button>
     </div>
-  `,
-  styles: [`
-    .user-card {
-      border: 1px solid #ccc;
-      padding: 1rem;
-      margin: 0.5rem;
-      cursor: pointer;
-    }
-    .user-card:hover {
-      background-color: #f5f5f5;
-    }
-  `]
+  `
 })
 export class UserCardComponent {
   @Input({ required: true }) user!: User;

@@ -22,95 +22,52 @@ import { LanguageService, Language } from '../../../core/services';
   imports: [CommonModule],
   template: `
     <div 
-      class="language-switcher" 
+      class="flex w-full items-center gap-1.5 transition-[flex-direction,gap] duration-200 ease-in-out"
+      [class.flex-col]="isCollapsed"
+      [class.items-stretch]="isCollapsed"
+      [class.gap-1]="isCollapsed"
       [attr.dir]="languageService.isRTL() ? 'rtl' : 'ltr'"
-      [class.collapsed]="isCollapsed"
+      [class.flex-row-reverse]="languageService.isRTL() && !isCollapsed"
     >
       @for (lang of languages; track lang.code) {
         <button
           type="button"
-          [class.active]="languageService.currentLanguage() === lang.code"
+          class="relative flex-1 rounded-md border px-3 py-2 text-center text-xs font-semibold uppercase tracking-wide transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800"
+          [class.flex-none]="isCollapsed"
+          [class.min-w-0]="isCollapsed"
+          [class.p-1.5]="isCollapsed"
+          [class.text-[10px]]="isCollapsed"
+          [class.border-white/20]="languageService.currentLanguage() !== lang.code"
+          [class.bg-white/10]="languageService.currentLanguage() !== lang.code"
+          [class.text-slate-300]="languageService.currentLanguage() !== lang.code"
+          [class.hover:border-white/30]="languageService.currentLanguage() !== lang.code"
+          [class.hover:bg-white/15]="languageService.currentLanguage() !== lang.code"
+          [class.bg-blue-600]="languageService.currentLanguage() === lang.code"
+          [class.border-blue-500]="languageService.currentLanguage() === lang.code"
+          [class.text-white]="languageService.currentLanguage() === lang.code"
+          [class.shadow-md]="languageService.currentLanguage() === lang.code"
+          [class.shadow-blue-500/50]="languageService.currentLanguage() === lang.code"
+          [class.hover:bg-blue-700]="languageService.currentLanguage() === lang.code"
+          [class.hover:border-blue-400]="languageService.currentLanguage() === lang.code"
+          [class.active:scale-95]="languageService.currentLanguage() === lang.code"
+          [class.cursor-not-allowed]="languageService.currentLanguage() === lang.code"
+          [class.opacity-100]="languageService.currentLanguage() === lang.code"
           (click)="switchLanguage(lang.code)"
           [attr.aria-label]="lang.label"
           [attr.aria-pressed]="languageService.currentLanguage() === lang.code"
-          class="lang-button"
           [title]="isCollapsed ? lang.label : ''"
         >
-          {{ lang.label }}
+          <span class="block">{{ lang.label }}</span>
+          @if (languageService.currentLanguage() === lang.code && !isCollapsed) {
+            <span class="absolute -top-1 -right-1 flex h-2 w-2">
+              <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75"></span>
+              <span class="relative inline-flex h-2 w-2 rounded-full bg-blue-500"></span>
+            </span>
+          }
         </button>
       }
     </div>
-  `,
-  styles: [`
-    .language-switcher {
-      display: flex;
-      gap: var(--spacing-sm);
-      align-items: center;
-      width: 100%;
-      transition: flex-direction var(--transition-base), gap var(--transition-base);
-    }
-
-    .language-switcher.collapsed {
-      flex-direction: column;
-      gap: var(--spacing-xs);
-      align-items: stretch;
-    }
-
-    .lang-button {
-      flex: 1;
-      padding: var(--spacing-sm) var(--spacing-md);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      background: rgba(255, 255, 255, 0.1);
-      color: var(--text-sidebar);
-      cursor: pointer;
-      border-radius: var(--radius-sm);
-      transition: all var(--transition-base);
-      font-size: 0.875rem;
-      font-weight: 500;
-      min-width: 50px;
-      width: 100%;
-      text-align: center;
-    }
-
-    .language-switcher.collapsed .lang-button {
-      flex: none;
-      min-width: auto;
-      width: 100%;
-      padding: var(--spacing-sm);
-      font-size: 0.75rem;
-    }
-
-    .lang-button:hover {
-      background: rgba(255, 255, 255, 0.15);
-      border-color: rgba(255, 255, 255, 0.3);
-    }
-
-    .lang-button:focus {
-      outline: 2px solid var(--color-primary);
-      outline-offset: 2px;
-    }
-
-    .lang-button.active {
-      background: var(--color-primary);
-      color: var(--text-inverse);
-      border-color: var(--color-primary);
-    }
-
-    .lang-button.active:hover {
-      background: var(--color-primary-dark);
-      border-color: var(--color-primary-dark);
-    }
-
-    /* RTL support - only when not collapsed */
-    .language-switcher[dir="rtl"]:not(.collapsed) {
-      flex-direction: row-reverse;
-    }
-
-    /* RTL collapsed - keep column layout */
-    .language-switcher[dir="rtl"].collapsed {
-      flex-direction: column;
-    }
-  `]
+  `
 })
 export class LanguageSwitcherComponent {
   protected readonly languageService = inject(LanguageService);

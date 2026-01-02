@@ -22,16 +22,17 @@ import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserCardComponent } from '../components/user-card.component';
 import { User } from '../data-access/services/create-user.service';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-users-page',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslocoPipe],
   template: `
-    <div class="users-page">
-      <h1>Users Management</h1>
+    <div class="w-full min-h-full p-8">
+      <h1 class="mb-8 text-3xl font-bold text-slate-900">{{ 'employees.management' | transloco }}</h1>
 
-      <div class="users-list">
+      <div class="mb-8 flex flex-wrap gap-4">
           <!-- <app-user-card
             [user]="user"
             (userClick)="onUserClick($event)"
@@ -39,90 +40,11 @@ import { User } from '../data-access/services/create-user.service';
           /> -->
       </div>
 
-      <div class="add-user-form">
-        <input
-          type="text"
-          placeholder="Name"
-          [value]="newUserName()"
-          (input)="newUserName.set($any($event.target).value)"
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          [value]="newUserEmail()"
-          (input)="newUserEmail.set($any($event.target).value)"
-        />
-        <button (click)="onAddUser()" type="button">Add User</button>
+      <div class="text-center text-slate-400">
+        <p>{{ 'employees.empty' | transloco }}</p>
       </div>
     </div>
-  `,
-  styles: [`
-    .users-page {
-      padding: var(--spacing-xl);
-      width: 100%;
-      min-height: 100%;
-    }
-
-    .users-page h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: var(--spacing-xl);
-    }
-
-    .users-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--spacing-md);
-      margin-bottom: var(--spacing-xl);
-    }
-
-    .add-user-form {
-      display: flex;
-      gap: var(--spacing-md);
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .add-user-form input {
-      flex: 1;
-      min-width: 200px;
-      padding: var(--spacing-sm) var(--spacing-md);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-sm);
-      font-size: 0.9375rem;
-      transition: border-color var(--transition-base);
-    }
-
-    .add-user-form input:focus {
-      outline: none;
-      border-color: var(--color-primary);
-    }
-
-    .add-user-form button {
-      padding: var(--spacing-sm) var(--spacing-lg);
-      background-color: var(--color-primary);
-      color: var(--text-inverse);
-      border: none;
-      border-radius: var(--radius-sm);
-      font-size: 0.9375rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: background-color var(--transition-base);
-    }
-
-    .add-user-form button:hover {
-      background-color: var(--color-primary-dark);
-    }
-
-    .error {
-      color: var(--color-danger);
-      padding: var(--spacing-md);
-      background-color: rgba(239, 68, 68, 0.1);
-      border-radius: var(--radius-sm);
-      margin-top: var(--spacing-md);
-    }
-  `]
+  `
 })
 export class UsersPageComponent implements OnInit {
   newUserName = signal('');

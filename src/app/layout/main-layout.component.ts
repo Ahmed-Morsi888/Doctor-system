@@ -23,84 +23,24 @@ import { LanguageService, SidebarService } from '../core/services';
   standalone: true,
   imports: [CommonModule, RouterOutlet, TranslocoModule, SideMenuComponent],
   template: `
-    <div class="main-layout" [class.rtl]="languageService.isRTL()">
+    <div class="flex min-h-screen w-screen max-w-screen overflow-x-hidden bg-slate-50" [class.rtl]="languageService.isRTL()">
       <!-- Side Menu -->
       <app-side-menu></app-side-menu>
 
       <!-- Main Content Area -->
       <div
-        class="main-content-wrapper"
-        [class.sidebar-collapsed]="sidebarService.isCollapsed()"
+        class="flex min-w-0 flex-1 flex-col transition-[margin-left,margin-right,width] duration-200 ease-in-out max-md:ml-0 rtl:max-md:mr-0"
+        [style.margin-left]="languageService.isRTL() ? '0' : (sidebarService.isCollapsed() ? '80px' : 'clamp(250px, 30vw, 350px)')"
+        [style.margin-right]="languageService.isRTL() ? (sidebarService.isCollapsed() ? '80px' : 'clamp(250px, 30vw, 350px)') : '0'"
+        [style.width]="sidebarService.isCollapsed() ? 'calc(100vw - 80px)' : 'calc(100vw - clamp(250px, 30vw, 350px))'"
       >
         <!-- Page Content -->
-        <main class="main-content">
+        <main class="min-w-0 flex-1 overflow-y-auto bg-slate-50 p-0">
           <router-outlet></router-outlet>
         </main>
       </div>
     </div>
-  `,
-  styles: [`
-    .main-layout {
-      display: flex;
-      min-height: 100vh;
-      width: 100vw;
-      max-width: 100vw;
-      background-color: var(--bg-secondary);
-      overflow-x: hidden;
-    }
-
-    .main-content-wrapper {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      margin-left: var(--sidebar-width);
-      min-width: 0; /* Allow flex item to shrink */
-      transition: margin-left var(--transition-base), width var(--transition-base);
-      width: calc(100vw - var(--sidebar-width));
-      max-width: none;
-    }
-
-    .main-content-wrapper.sidebar-collapsed {
-      margin-left: var(--sidebar-width-collapsed);
-      width: calc(100vw - var(--sidebar-width-collapsed));
-      max-width: none;
-    }
-
-    .main-layout.rtl .main-content-wrapper {
-      margin-left: 0;
-      margin-right: var(--sidebar-width);
-      transition: margin-right var(--transition-base), width var(--transition-base);
-      width: calc(100vw - var(--sidebar-width));
-      max-width: none;
-    }
-
-    .main-layout.rtl .main-content-wrapper.sidebar-collapsed {
-      margin-right: var(--sidebar-width-collapsed);
-      width: calc(100vw - var(--sidebar-width-collapsed));
-      max-width: none;
-    }
-
-    /* Main Content */
-    .main-content {
-      flex: 1;
-      overflow-y: auto;
-      background-color: var(--bg-secondary);
-      width: 100%;
-      min-width: 0;
-      padding: 0;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .main-content-wrapper {
-        margin-left: 0;
-      }
-
-      .main-layout.rtl .main-content-wrapper {
-        margin-right: 0;
-      }
-    }
-  `]
+  `
 })
 export class MainLayoutComponent {
   protected readonly languageService = inject(LanguageService);
