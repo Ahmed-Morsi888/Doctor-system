@@ -22,6 +22,7 @@
   "app": {
     "title": "nextBriteFE",
     "welcome": "مرحباً",
+    "dashboard": "لوحة التحكم",
     "description": "تطبيق Angular حديث"
   },
   "menu": {
