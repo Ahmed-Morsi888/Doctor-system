@@ -28,10 +28,10 @@ import { TranslocoPipe } from '@jsverse/transloco';
   standalone: true,
   imports: [CommonModule, TranslocoPipe],
   template: `
-    <div class="users-page">
-      <h1>{{ 'patients.management' | transloco }}</h1>
+    <div class="p-8 w-full min-h-full">
+      <h1 class="text-2xl font-bold text-primary mb-4">{{ 'patients.management' | transloco }}</h1>
 
-      <div class="users-list">
+      <div class="flex flex-wrap gap-4">
           <!-- <app-user-card
             [user]="user"
             (userClick)="onUserClick($event)"
@@ -39,31 +39,12 @@ import { TranslocoPipe } from '@jsverse/transloco';
           /> -->
       </div>
 
-      <div class="empty-user-list">
+      <div class="text-center text-muted">
         <p>{{ 'patients.empty' | transloco }}</p>
       </div>
     </div>
   `,
-  styles: [`
-    .users-page {
-      padding: 2rem;
-    }
-    .users-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .add-user-form {
-      margin-top: 2rem;
-      display: flex;
-      gap: 1rem;
-    }
-    .error {
-      color: red;
-      padding: 1rem;
-      background-color: #ffe6e6;
-    }
-  `]
+
 })
 export class UsersPageComponent implements OnInit {
   newUserName = signal('');

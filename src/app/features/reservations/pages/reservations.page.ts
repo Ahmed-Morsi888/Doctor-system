@@ -4,7 +4,7 @@ import { TranslocoModule } from '@jsverse/transloco';
 
 /**
  * Reservations Page
- * 
+ *
  * Page component for managing reservations.
  * Follows the project architecture pattern.
  */
@@ -13,58 +13,22 @@ import { TranslocoModule } from '@jsverse/transloco';
   standalone: true,
   imports: [CommonModule, TranslocoModule],
   template: `
-    <div class="page-container">
-      <div class="page-header">
-        <h1 *transloco="let t">{{ t('menu.reservations') }}</h1>
-        <p class="page-description" *transloco="let t">
+    <div class="w-full min-h-full p-8">
+      <div class="mb-8">
+        <h1 class="mb-2 text-3xl font-bold text-slate-900" *transloco="let t">{{ t('menu.reservations') }}</h1>
+        <p class="text-base text-slate-500" *transloco="let t">
           {{ t('reservations.description') }}
         </p>
       </div>
 
-      <div class="page-content">
+      <div class="rounded-xl bg-white p-8 shadow-sm">
         <!-- Reservations content will go here -->
-        <div class="empty-state">
+        <div class="py-12 text-center text-slate-400">
           <p *transloco="let t">{{ t('reservations.empty') }}</p>
         </div>
       </div>
     </div>
-  `,
-  styles: [`
-    .page-container {
-      padding: var(--spacing-xl);
-      width: 100%;
-      min-height: 100%;
-    }
-
-    .page-header {
-      margin-bottom: var(--spacing-xl);
-    }
-
-    .page-header h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: var(--spacing-sm);
-    }
-
-    .page-description {
-      color: var(--text-secondary);
-      font-size: 1rem;
-    }
-
-    .page-content {
-      background: var(--bg-primary);
-      border-radius: var(--radius-lg);
-      padding: var(--spacing-xl);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .empty-state {
-      text-align: center;
-      padding: var(--spacing-2xl);
-      color: var(--text-muted);
-    }
-  `]
+  `
 })
-export class ReservationsPage {}
+export class ReservationsPage { }
 

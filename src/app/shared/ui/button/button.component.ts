@@ -16,25 +16,7 @@ export type ButtonSize = 'sm' | 'md' | 'lg';
     >
       <ng-content></ng-content>
     </button>
-  `,
-  styles: [`
-    .btn {
-      padding: 0.5rem 1rem;
-      border-radius: 0.25rem;
-      border: none;
-      cursor: pointer;
-      font-weight: 500;
-      transition: all 0.2s;
-    }
-    .btn-primary { background-color: #007bff; color: white; }
-    .btn-secondary { background-color: #6c757d; color: white; }
-    .btn-danger { background-color: #dc3545; color: white; }
-    .btn-outline { background-color: transparent; border: 1px solid #007bff; color: #007bff; }
-    .btn-sm { padding: 0.25rem 0.5rem; font-size: 0.875rem; }
-    .btn-md { padding: 0.5rem 1rem; font-size: 1rem; }
-    .btn-lg { padding: 0.75rem 1.5rem; font-size: 1.125rem; }
-    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
-  `]
+  `
 })
 export class ButtonComponent {
   @Input() variant: ButtonVariant = 'primary';
@@ -43,7 +25,22 @@ export class ButtonComponent {
   @Input() type: 'button' | 'submit' | 'reset' = 'button';
 
   get buttonClasses(): string {
-    return `btn btn-${this.variant} btn-${this.size}`;
+    const baseClasses = 'rounded border-none font-medium transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50';
+    
+    const variantClasses = {
+      primary: 'bg-blue-600 text-white hover:bg-blue-700',
+      secondary: 'bg-slate-500 text-white hover:bg-slate-600',
+      danger: 'bg-red-500 text-white hover:bg-red-600',
+      outline: 'bg-transparent border border-blue-600 text-blue-600 hover:bg-blue-50'
+    };
+
+    const sizeClasses = {
+      sm: 'px-2 py-1 text-sm',
+      md: 'px-4 py-2 text-base',
+      lg: 'px-6 py-3 text-lg'
+    };
+
+    return `${baseClasses} ${variantClasses[this.variant]} ${sizeClasses[this.size]}`;
   }
 }
 
