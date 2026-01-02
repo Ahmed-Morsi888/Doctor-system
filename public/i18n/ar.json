@@ -20,15 +20,25 @@
     "reset": "إعادة تعيين"
   },
   "app": {
-    "title": "التطبيق الرئيسي",
+    "title": "nextBriteFE",
     "welcome": "مرحباً",
     "description": "تطبيق Angular حديث"
+  },
+  "menu": {
+    "dashboard": "لوحة التحكم",
+    "reservations": "الحجوزات",
+    "patients": "المرضى",
+    "employees": "الموظفون"
   },
   "language": {
     "english": "الإنجليزية",
     "arabic": "العربية",
     "switchLanguage": "تغيير اللغة",
     "selectLanguage": "اختر اللغة"
+  },
+  "reservations": {
+    "description": "إدارة وعرض جميع الحجوزات",
+    "empty": "لا توجد حجوزات"
   },
   "validation": {
     "required": "هذا الحقل مطلوب",

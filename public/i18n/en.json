@@ -24,11 +24,21 @@
     "welcome": "Welcome",
     "description": "A modern Angular application"
   },
+  "menu": {
+    "dashboard": "Dashboard",
+    "reservations": "Reservations",
+    "patients": "Patients",
+    "employees": "Employees"
+  },
   "language": {
     "english": "English",
     "arabic": "Arabic",
     "switchLanguage": "Switch Language",
     "selectLanguage": "Select Language"
+  },
+  "reservations": {
+    "description": "Manage and view all reservations",
+    "empty": "No reservations found"
   },
   "validation": {
     "required": "This field is required",
