@@ -21,7 +21,7 @@ import { LanguageService, Language } from '../../../core/services';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div 
+    <div
       class="flex w-full items-center gap-1.5 transition-[flex-direction,gap] duration-200 ease-in-out"
       [class.flex-col]="isCollapsed"
       [class.items-stretch]="isCollapsed"
@@ -32,38 +32,24 @@ import { LanguageService, Language } from '../../../core/services';
       @for (lang of languages; track lang.code) {
         <button
           type="button"
-          class="relative flex-1 rounded-md border px-3 py-2 text-center text-xs font-semibold uppercase tracking-wide transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800"
+          class="relative flex-1 rounded-md border cursor-pointer px-3 py-2 text-center text-xs font-semibold uppercase tracking-wide transition-all duration-200 focus:outline-none "
           [class.flex-none]="isCollapsed"
           [class.min-w-0]="isCollapsed"
           [class.p-1.5]="isCollapsed"
           [class.text-[10px]]="isCollapsed"
-          [class.border-white/20]="languageService.currentLanguage() !== lang.code"
-          [class.bg-white/10]="languageService.currentLanguage() !== lang.code"
-          [class.text-slate-300]="languageService.currentLanguage() !== lang.code"
-          [class.hover:border-white/30]="languageService.currentLanguage() !== lang.code"
-          [class.hover:bg-white/15]="languageService.currentLanguage() !== lang.code"
-          [class.bg-blue-600]="languageService.currentLanguage() === lang.code"
-          [class.border-blue-500]="languageService.currentLanguage() === lang.code"
+          [class.border-primary-300]="languageService.currentLanguage() !== lang.code"
+          [class.bg-primary-100]="languageService.currentLanguage() !== lang.code"
+          [class.text-primary-600]="languageService.currentLanguage() !== lang.code"
+          [class.bg-primary-600]="languageService.currentLanguage() === lang.code"
+          [class.border-primary-500]="languageService.currentLanguage() === lang.code"
           [class.text-white]="languageService.currentLanguage() === lang.code"
-          [class.shadow-md]="languageService.currentLanguage() === lang.code"
-          [class.shadow-blue-500/50]="languageService.currentLanguage() === lang.code"
-          [class.hover:bg-blue-700]="languageService.currentLanguage() === lang.code"
-          [class.hover:border-blue-400]="languageService.currentLanguage() === lang.code"
-          [class.active:scale-95]="languageService.currentLanguage() === lang.code"
-          [class.cursor-not-allowed]="languageService.currentLanguage() === lang.code"
-          [class.opacity-100]="languageService.currentLanguage() === lang.code"
           (click)="switchLanguage(lang.code)"
           [attr.aria-label]="lang.label"
           [attr.aria-pressed]="languageService.currentLanguage() === lang.code"
           [title]="isCollapsed ? lang.label : ''"
         >
           <span class="block">{{ lang.label }}</span>
-          @if (languageService.currentLanguage() === lang.code && !isCollapsed) {
-            <span class="absolute -top-1 -right-1 flex h-2 w-2">
-              <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75"></span>
-              <span class="relative inline-flex h-2 w-2 rounded-full bg-blue-500"></span>
-            </span>
-          }
+
         </button>
       }
     </div>
@@ -71,7 +57,7 @@ import { LanguageService, Language } from '../../../core/services';
 })
 export class LanguageSwitcherComponent {
   protected readonly languageService = inject(LanguageService);
-  
+
   // Input to receive collapsed state from parent
   @Input() isCollapsed = false;
 
