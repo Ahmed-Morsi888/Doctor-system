@@ -19,8 +19,10 @@
       "recordDeleted": "تم حذف السجل",
       "rejected": "تم الرفض",
       "youHaveRejected": "لقد رفضت",
-      "cancel": "إلغاء",
-      "editPatient": "تعديل المريض",
-      "deletePatient": "حذف المريض"
-
+  "cancel": "إلغاء",
+  "editPatient": "تعديل المريض",
+  "deletePatient": "حذف المريض",
+  "noPatientsFound": "لم يتم العثور على مرضى",
+  "emptyStateDescription": "حاول تعديل البحث أو إضافة مريض جديد",
+  "clearSearch": "مسح البحث"
 }

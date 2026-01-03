@@ -22,6 +22,8 @@
   "youHaveRejected": "You have rejected",
   "cancel": "Cancel",
   "editPatient": "Edit Patient",
-  "deletePatient": "Delete Patient"
-
+  "deletePatient": "Delete Patient",
+  "noPatientsFound": "No patients found",
+  "emptyStateDescription": "Try adjusting your search or add a new patient",
+  "clearSearch": "Clear Search"
 }

@@ -211,7 +211,8 @@ export class Home {
     const filtered = this.patients().filter(
       (patient) =>
         patient.name.toLowerCase().includes(search) ||
-        patient.id.toLowerCase().includes(search)
+        patient.id.toLowerCase().includes(search) ||
+        patient.phoneNumber.toLowerCase().includes(search)
     );
     this.filteredPatients.set(filtered);
   }
