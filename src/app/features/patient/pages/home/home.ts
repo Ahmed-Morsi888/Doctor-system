@@ -100,7 +100,7 @@ export class Home implements OnInit, OnDestroy {
   // Pagination
   first = signal(0);
   rows = signal(10);
-  totalRecords = signal(372);
+  totalRecords = signal(patients.length);
 
   // Filtered patients based on search
   filteredPatients = signal<Patient[]>(this.patients());
@@ -180,23 +180,6 @@ export class Home implements OnInit, OnDestroy {
   getStatusSeverity(status: string): 'success' | 'secondary' {
     return status === 'Active' ? 'success' : 'secondary';
   }
-
-  /**
-   * Export patients data
-   */
-  onExport(): void {
-    console.log('Export patients');
-    // TODO: Implement export functionality
-  }
-
-  /**
-   * Open new patient dialog
-   */
-  onNewPatient(): void {
-    console.log('New patient');
-    // TODO: Implement new patient dialog
-  }
-
 
   /**
    * Confirm delete patient
