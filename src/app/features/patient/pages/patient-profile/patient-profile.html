@@ -3,6 +3,7 @@
   *transloco="let t; scope: 'patient'"
   [attr.dir]="languageService.isRTL() ? 'rtl' : 'ltr'"
 >
+  <p-toast />
   @if (patient(); as patientData) {
   <!-- Header -->
   <div
@@ -64,6 +65,7 @@
           {{ t('patient.tabs.billingHistory') }}
         </button>
       </nav>
+      @if (!isEditMode()) {
       <button
         type="button"
         (click)="toggleEditMode()"
@@ -74,6 +76,23 @@
       >
         <i class="pi pi-pencil text-sm"></i>
       </button>
+      } @else {
+      <div class="flex items-center gap-2" [class.flex-row-reverse]="languageService.isRTL()">
+        <p-button
+          [label]="t('common.save')"
+          [icon]="'pi pi-check'"
+          severity="primary"
+          (onClick)="savePatient()"
+        />
+        <p-button
+          [label]="t('common.cancel')"
+          [icon]="'pi pi-times'"
+          severity="secondary"
+          [outlined]="true"
+          (onClick)="cancelEdit()"
+        />
+      </div>
+      }
     </div>
   </div>
 
@@ -89,64 +108,142 @@
         <h2 class="text-lg font-bold text-primary-700">{{ t('patient.sections.personalInfo') }}</h2>
       </div>
       <div class="p-6">
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-          <div>
-            <label class="block text-sm font-medium text-gray-600">{{
-              t('patient.fields.fullName')
-            }}</label>
-            <p class="mt-1 text-base font-semibold text-gray-900">{{ patientData.name }}</p>
+        <form>
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div>
+              <label class="block text-sm font-medium text-gray-600">{{
+                t('patient.fields.fullName')
+              }}</label>
+              @if (isEditMode()) {
+              <input
+                [field]="patientForm.name"
+                type="text"
+                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              />
+              } @else {
+              <p class="mt-1 text-base font-semibold text-gray-900">{{ patientData.name }}</p>
+              }
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-600">{{
+                t('patient.fields.gender')
+              }}</label>
+              @if (isEditMode()) {
+              <select
+                [field]="patientForm.gender"
+                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              >
+                @for (option of genderOptions; track option.value) {
+                <option [value]="option.value">{{ option.label }}</option>
+                }
+              </select>
+              } @else {
+              <p class="mt-1 text-base font-semibold text-gray-900">{{ patientData.gender }}</p>
+              }
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-600">{{
+                t('patient.fields.phoneNumber')
+              }}</label>
+              @if (isEditMode()) {
+              <input
+                [field]="patientForm.phoneNumber"
+                type="tel"
+                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              />
+              } @else {
+              <p class="mt-1 text-base font-semibold text-gray-900">
+                {{ patientData.phoneNumber }}
+              </p>
+              }
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-600">{{
+                t('patient.fields.assignedDentist')
+              }}</label>
+              @if (isEditMode()) {
+              <input
+                [field]="patientForm.assignedDentist"
+                type="text"
+                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                [placeholder]="t('patient.notAssigned')"
+              />
+              } @else {
+              <p class="mt-1 text-base font-semibold text-gray-900">
+                {{ patientData.assignedDentist?.name ?? t('patient.notAssigned') }}
+              </p>
+              }
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-600">{{
+                t('patient.fields.dateOfBirth')
+              }}</label>
+              @if (isEditMode()) {
+              <input
+                [field]="patientForm.dateOfBirth"
+                type="text"
+                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                placeholder="DD/MM/YYYY"
+              />
+              } @else {
+              <p class="mt-1 text-base font-semibold text-gray-900">
+                {{ patientData.dateOfBirth }}
+              </p>
+              }
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-600">{{
+                t('patient.fields.address')
+              }}</label>
+              @if (isEditMode()) {
+              <input
+                [field]="patientForm.address"
+                type="text"
+                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                [placeholder]="t('patient.notProvided')"
+              />
+              } @else {
+              <p class="mt-1 text-base font-semibold text-gray-900">
+                {{ patientData.address || t('patient.notProvided') }}
+              </p>
+              }
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-600">{{
+                t('patient.fields.email')
+              }}</label>
+              @if (isEditMode()) {
+              <input
+                [field]="patientForm.email"
+                type="email"
+                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                [placeholder]="t('patient.notProvided')"
+              />
+              } @else {
+              <p class="mt-1 text-base font-semibold text-gray-900">
+                {{ patientData.email || t('patient.notProvided') }}
+              </p>
+              }
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-600">{{
+                t('patient.fields.referredBy')
+              }}</label>
+              @if (isEditMode()) {
+              <input
+                [field]="patientForm.referredBy"
+                type="text"
+                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                [placeholder]="t('patient.none')"
+              />
+              } @else {
+              <p class="mt-1 text-base font-semibold text-gray-900">
+                {{ patientData.referredBy || t('patient.none') }}
+              </p>
+              }
+            </div>
           </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-600">{{
-              t('patient.fields.gender')
-            }}</label>
-            <p class="mt-1 text-base font-semibold text-gray-900">{{ patientData.gender }}</p>
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-600">{{
-              t('patient.fields.phoneNumber')
-            }}</label>
-            <p class="mt-1 text-base font-semibold text-gray-900">{{ patientData.phoneNumber }}</p>
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-600">{{
-              t('patient.fields.assignedDentist')
-            }}</label>
-            <p class="mt-1 text-base font-semibold text-gray-900">
-              {{ patientData.assignedDentist?.name ?? t('patient.notAssigned') }}
-            </p>
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-600">{{
-              t('patient.fields.dateOfBirth')
-            }}</label>
-            <p class="mt-1 text-base font-semibold text-gray-900">{{ patientData.dateOfBirth }}</p>
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-600">{{
-              t('patient.fields.address')
-            }}</label>
-            <p class="mt-1 text-base font-semibold text-gray-900">
-              {{ patientData.address || t('patient.notProvided') }}
-            </p>
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-600">{{
-              t('patient.fields.email')
-            }}</label>
-            <p class="mt-1 text-base font-semibold text-gray-900">
-              {{ patientData.email || t('patient.notProvided') }}
-            </p>
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-600">{{
-              t('patient.fields.referredBy')
-            }}</label>
-            <p class="mt-1 text-base font-semibold text-gray-900">
-              {{ patientData.referredBy || t('patient.none') }}
-            </p>
-          </div>
-        </div>
+        </form>
       </div>
     </div>
 
@@ -160,48 +257,95 @@
         </h2>
       </div>
       <div class="p-6">
-        <div class="space-y-4">
-          <div>
-            <label class="block text-sm font-medium text-gray-600">{{
-              t('patient.fields.reasonForVisit')
-            }}</label>
-            <p class="mt-1 text-base font-semibold text-gray-900">
-              {{ patientData.reasonForVisit || t('patient.notProvided') }}
-            </p>
+        <form>
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-600">{{
+                t('patient.fields.reasonForVisit')
+              }}</label>
+              @if (isEditMode()) {
+              <textarea
+                [field]="patientForm.reasonForVisit"
+                rows="3"
+                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                [placeholder]="t('patient.notProvided')"
+              ></textarea>
+              } @else {
+              <p class="mt-1 text-base font-semibold text-gray-900">
+                {{ patientData.reasonForVisit || t('patient.notProvided') }}
+              </p>
+              }
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-600">{{
+                t('patient.fields.medicalConditions')
+              }}</label>
+              @if (isEditMode()) {
+              <textarea
+                [field]="patientForm.medicalConditions"
+                rows="3"
+                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                [placeholder]="t('patient.noKnownConditions')"
+              ></textarea>
+              } @else {
+              <p class="mt-1 text-base font-semibold text-gray-900">
+                {{ patientData.medicalConditions || t('patient.noKnownConditions') }}
+              </p>
+              }
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-600">{{
+                t('patient.fields.allergies')
+              }}</label>
+              @if (isEditMode()) {
+              <input
+                [field]="patientForm.allergies"
+                type="text"
+                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                [placeholder]="t('patient.none')"
+              />
+              } @else {
+              <p class="mt-1 text-base font-semibold text-gray-900">
+                {{ patientData.allergies || t('patient.none') }}
+              </p>
+              }
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-600">{{
+                t('patient.fields.currentMedications')
+              }}</label>
+              @if (isEditMode()) {
+              <input
+                [field]="patientForm.currentMedications"
+                type="text"
+                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                [placeholder]="t('patient.none')"
+              />
+              } @else {
+              <p class="mt-1 text-base font-semibold text-gray-900">
+                {{ patientData.currentMedications || t('patient.none') }}
+              </p>
+              }
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-600">{{
+                t('patient.fields.dentalHistory')
+              }}</label>
+              @if (isEditMode()) {
+              <textarea
+                [field]="patientForm.dentalHistory"
+                rows="3"
+                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                [placeholder]="t('patient.notProvided')"
+              ></textarea>
+              } @else {
+              <p class="mt-1 text-base font-semibold text-gray-900">
+                {{ patientData.dentalHistory || t('patient.notProvided') }}
+              </p>
+              }
+            </div>
           </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-600">{{
-              t('patient.fields.medicalConditions')
-            }}</label>
-            <p class="mt-1 text-base font-semibold text-gray-900">
-              {{ patientData.medicalConditions || t('patient.noKnownConditions') }}
-            </p>
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-600">{{
-              t('patient.fields.allergies')
-            }}</label>
-            <p class="mt-1 text-base font-semibold text-gray-900">
-              {{ patientData.allergies || t('patient.none') }}
-            </p>
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-600">{{
-              t('patient.fields.currentMedications')
-            }}</label>
-            <p class="mt-1 text-base font-semibold text-gray-900">
-              {{ patientData.currentMedications || t('patient.none') }}
-            </p>
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-600">{{
-              t('patient.fields.dentalHistory')
-            }}</label>
-            <p class="mt-1 text-base font-semibold text-gray-900">
-              {{ patientData.dentalHistory || t('patient.notProvided') }}
-            </p>
-          </div>
-        </div>
+        </form>
       </div>
     </div>
 
@@ -215,24 +359,44 @@
         </h2>
       </div>
       <div class="p-6">
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-          <div>
-            <label class="block text-sm font-medium text-gray-600">{{
-              t('patient.fields.insuranceProvider')
-            }}</label>
-            <p class="mt-1 text-base font-semibold text-gray-900">
-              {{ patientData.insuranceProvider || t('patient.notProvided') }}
-            </p>
+        <form>
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div>
+              <label class="block text-sm font-medium text-gray-600">{{
+                t('patient.fields.insuranceProvider')
+              }}</label>
+              @if (isEditMode()) {
+              <input
+                [field]="patientForm.insuranceProvider"
+                type="text"
+                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                [placeholder]="t('patient.notProvided')"
+              />
+              } @else {
+              <p class="mt-1 text-base font-semibold text-gray-900">
+                {{ patientData.insuranceProvider || t('patient.notProvided') }}
+              </p>
+              }
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-600">{{
+                t('patient.fields.policyNumber')
+              }}</label>
+              @if (isEditMode()) {
+              <input
+                [field]="patientForm.policyNumber"
+                type="text"
+                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                [placeholder]="t('patient.notProvided')"
+              />
+              } @else {
+              <p class="mt-1 text-base font-semibold text-gray-900">
+                {{ patientData.policyNumber || t('patient.notProvided') }}
+              </p>
+              }
+            </div>
           </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-600">{{
-              t('patient.fields.policyNumber')
-            }}</label>
-            <p class="mt-1 text-base font-semibold text-gray-900">
-              {{ patientData.policyNumber || t('patient.notProvided') }}
-            </p>
-          </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>
