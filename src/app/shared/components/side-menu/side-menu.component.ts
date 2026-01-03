@@ -55,7 +55,7 @@ export interface MenuItem {
             {{ t('app.title') }}
           </span>
         </div>
-        <button
+        <!-- <button
           type="button"
           class="flex h-10 w-10 shrink-0 items-center justify-center rounded bg-primary-100 text-primary-600 transition-all duration-200 hover:bg-primary-200 hover:text-primary-700 collapsed:absolute collapsed:top-4 collapsed:right-2 rtl:collapsed:right-auto rtl:collapsed:left-2"
           (click)="toggleSidebar()"
@@ -67,7 +67,7 @@ export interface MenuItem {
             class="text-xl transition-transform duration-200 text-primary-600"
             [class.rotate-180]="(!languageService.isRTL() && sidebarService.isCollapsed()) || (languageService.isRTL() && !sidebarService.isCollapsed())"
           ></i>
-        </button>
+        </button> -->
       </div>
 
       <!-- Navigation Menu -->
