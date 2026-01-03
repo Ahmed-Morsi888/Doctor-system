@@ -17,7 +17,13 @@
     "next": "التالي",
     "previous": "السابق",
     "submit": "إرسال",
-    "reset": "إعادة تعيين"
+    "reset": "إعادة تعيين",
+    "deleteConfirmation": "هل أنت متأكد من حذف هذا السجل؟",
+    "deleteConfirmationHeader": "منطقة الخطر",
+    "confirmed": "تم التأكيد",
+    "recordDeleted": "تم حذف السجل",
+    "rejected": "تم الرفض",
+    "youHaveRejected": "لقد رفضت"
   },
   "app": {
     "title": "nextBriteFE",

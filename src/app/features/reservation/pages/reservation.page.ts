@@ -25,22 +25,24 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 
 })
 export class ReservationPage {
-  reservations = reservations;
+  protected readonly reservations = reservations;
   protected readonly messageService = inject(MessageService);
   protected readonly t = inject(TranslocoService);
   protected readonly confirmationService = inject(ConfirmationService);
-  searchValue = signal('');
+  protected readonly searchValue = signal('');
   private readonly searchSubject = new Subject<string>();
+  first = signal(0);
+  rows = signal(10);
+  totalRecords = signal(reservations.length);
   private readonly destroy$ = new Subject<void>();
   private readonly paginationSubject = new Subject<PaginationEvent>();
   protected readonly drawerPosition = computed(() => (this.languageService.isRTL() ? 'left' : 'right'));
   protected readonly languageService = inject(LanguageService);
   protected readonly visible = signal(false);
-  protected readonly newReservationVisible = signal(false);
   protected readonly editReservationVisible = signal(false);
-  deleteReservationVisible = signal(false);
-  readonly pagination$ = this.paginationSubject.asObservable();
-  filteredReservations = signal<Reservation[]>(reservations);
+  protected readonly deleteReservationVisible = signal(false);
+  protected readonly pagination$ = this.paginationSubject.asObservable();
+  protected readonly filteredReservations = signal<Reservation[]>(reservations);
 
   getStatusSeverity(status: string): 'success' | 'info' | 'warn' | 'danger' | 'secondary' {
     switch (status?.toUpperCase()) {
@@ -55,6 +57,11 @@ export class ReservationPage {
       default:
         return 'secondary';
     }
+  }
+
+  onPageChange(event: any): void {
+    this.first.set(event.first);
+    this.rows.set(event.rows);
   }
 
 
@@ -92,5 +99,31 @@ export class ReservationPage {
   clearSearch(): void {
     this.searchValue.set('');
     this.searchSubject.next('');
+  }
+
+  confirmDelete(event: Event): void {
+    this.confirmationService.confirm({
+      target: event?.target as EventTarget,
+      message: this.t.translate('common.deleteConfirmation'),
+      header: this.t.translate('common.deleteConfirmationHeader'),
+      icon: 'pi pi-info-circle',
+      rejectLabel: this.t.translate('common.cancel'),
+      rejectButtonProps: {
+        label: this.t.translate('common.cancel'),
+        severity: 'secondary',
+        outlined: true,
+      },
+      acceptButtonProps: {
+        label: this.t.translate('common.delete'),
+        severity: 'danger',
+      },
+
+      accept: () => {
+        this.messageService.add({ severity: 'info', summary: this.t.translate('common.confirmed'), detail: this.t.translate('common.recordDeleted') });
+      },
+      reject: () => {
+        this.messageService.add({ severity: 'error', summary: this.t.translate('common.rejected'), detail: this.t.translate('common.youHaveRejected') });
+      },
+    });
   }
 }

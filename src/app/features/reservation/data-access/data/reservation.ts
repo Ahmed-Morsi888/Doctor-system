@@ -6,7 +6,7 @@ export const reservations: Reservation[] = [
     patient: {
       id: 'PAT-556',
       name: 'Mohamed Alkayal',
-      phone: '+201012345678',
+      phone: '01012345678',
     },
     appointment: {
       date: '2026-01-05',
@@ -34,7 +34,7 @@ export const reservations: Reservation[] = [
     patient: {
       id: 'PAT-556',
       name: 'Mohamed Alkayal',
-      phone: '+201012345678',
+      phone: '01012345678',
     },
     appointment: {
       date: '2026-01-05',
@@ -62,7 +62,7 @@ export const reservations: Reservation[] = [
     patient: {
       id: 'PAT-556',
       name: 'Mohamed Alkayal',
-      phone: '+201012345678',
+      phone: '01012345678',
     },
     appointment: {
       date: '2026-01-05',
@@ -90,7 +90,7 @@ export const reservations: Reservation[] = [
     patient: {
       id: 'PAT-556',
       name: 'Mohamed Alkayal',
-      phone: '+201012345678',
+      phone: '01012345678',
     },
     appointment: {
       date: '2026-01-05',
@@ -118,7 +118,7 @@ export const reservations: Reservation[] = [
     patient: {
       id: 'PAT-556',
       name: 'Mohamed Alkayal',
-      phone: '+201012345678',
+      phone: '01012345678',
     },
     appointment: {
       date: '2026-01-05',
@@ -146,7 +146,7 @@ export const reservations: Reservation[] = [
     patient: {
       id: 'PAT-556',
       name: 'Mohamed Alkayal',
-      phone: '+201012345678',
+      phone: '01012345678',
     },
     appointment: {
       date: '2026-01-05',
@@ -174,7 +174,7 @@ export const reservations: Reservation[] = [
     patient: {
       id: 'PAT-556',
       name: 'Mohamed Alkayal',
-      phone: '+201012345678',
+      phone: '01012345678',
     },
     appointment: {
       date: '2026-01-05',
@@ -202,7 +202,7 @@ export const reservations: Reservation[] = [
     patient: {
       id: 'PAT-556',
       name: 'Mohamed Alkayal',
-      phone: '+201012345678',
+      phone: '01012345678',
     },
     appointment: {
       date: '2026-01-05',
@@ -230,7 +230,7 @@ export const reservations: Reservation[] = [
     patient: {
       id: 'PAT-556',
       name: 'Mohamed Alkayal',
-      phone: '+201012345678',
+      phone: '01012345678',
     },
     appointment: {
       date: '2026-01-05',
@@ -258,7 +258,7 @@ export const reservations: Reservation[] = [
     patient: {
       id: 'PAT-556',
       name: 'Mohamed Alkayal',
-      phone: '+201012345678',
+      phone: '01012345678',
     },
     appointment: {
       date: '2026-01-05',
@@ -286,7 +286,7 @@ export const reservations: Reservation[] = [
     patient: {
       id: 'PAT-556',
       name: 'Mohamed Alkayal',
-      phone: '+201012345678',
+      phone: '01012345678',
     },
     appointment: {
       date: '2026-01-05',
@@ -314,7 +314,7 @@ export const reservations: Reservation[] = [
     patient: {
       id: 'PAT-556',
       name: 'Mohamed Alkayal',
-      phone: '+201012345678',
+      phone: '01012345678',
     },
     appointment: {
       date: '2026-01-05',

@@ -192,25 +192,25 @@ export class Home implements OnInit, OnDestroy {
   confirmDelete(event: Event): void {
     this.confirmationService.confirm({
       target: event?.target as EventTarget,
-      message: this.t.translate('patient.deleteConfirmation'),
-      header: this.t.translate('patient.deleteConfirmationHeader'),
+      message: this.t.translate('common.deleteConfirmation'),
+      header: this.t.translate('common.deleteConfirmationHeader'),
       icon: 'pi pi-info-circle',
-      rejectLabel: this.t.translate('patient.cancel'),
+      rejectLabel: this.t.translate('common.cancel'),
       rejectButtonProps: {
-        label: this.t.translate('patient.cancel'),
+        label: this.t.translate('common.cancel'),
         severity: 'secondary',
         outlined: true,
       },
       acceptButtonProps: {
-        label: this.t.translate('patient.delete'),
+        label: this.t.translate('common.delete'),
         severity: 'danger',
       },
 
       accept: () => {
-        this.messageService.add({ severity: 'info', summary: this.t.translate('patient.confirmed'), detail: this.t.translate('patient.recordDeleted') });
+        this.messageService.add({ severity: 'info', summary: this.t.translate('common.confirmed'), detail: this.t.translate('common.recordDeleted') });
       },
       reject: () => {
-        this.messageService.add({ severity: 'error', summary: this.t.translate('patient.rejected'), detail: this.t.translate('patient.youHaveRejected') });
+        this.messageService.add({ severity: 'error', summary: this.t.translate('common.rejected'), detail: this.t.translate('common.youHaveRejected') });
       },
     });
   }

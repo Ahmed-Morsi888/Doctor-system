@@ -38,65 +38,97 @@
       />
     </div>
   </div>
-  <div class="flex gap-4">
-    <div class="rounded border-surface-400 w-full">
-      <p-table [value]="filteredReservations()">
-        <ng-template pTemplate="header">
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">{{ t('reservation.patient') }}</th>
-            <th scope="col">{{ t('reservation.phone') }}</th>
-            <th scope="col">{{ t('reservation.date') }}</th>
-            <th scope="col">{{ t('reservation.startTime') }}</th>
-            <th scope="col">{{ t('reservation.payment') }}</th>
-            <th scope="col">{{ t('reservation.status') }}</th>
-          </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-reservation>
-          <tr>
-            <td>{{ reservation.reservationId }}</td>
-            <td>
-              <p class="font-medium text-slate-900">{{ reservation.patient?.name }}</p>
-            </td>
-            <td>
-              <p class="font-medium text-slate-900">{{ reservation.patient?.phone }}</p>
-            </td>
-            <td>
-              <p class="font-medium text-slate-900">{{ reservation.appointment?.date }}</p>
-            </td>
-            <td>
-              <p class="font-medium text-slate-900">
-                {{ reservation.appointment?.startTime }} {{ t('reservation.for') }}
-                {{ reservation.appointment?.durationMinutes }} {{ t('reservation.mins') }}
-              </p>
-            </td>
-            <td class="flex items-center gap-2">
-              <p class="font-medium text-slate-900">
-                {{ reservation.payment?.amount }} {{ reservation.payment?.currency }}
-              </p>
-              @if (reservation.payment?.method === 'CASH') {
-              <p-tag value="CASH" severity="success" [rounded]="true"></p-tag>
-              } @else if (reservation.payment?.method === 'CARD') {
-              <p-tag value="CARD" severity="info" [rounded]="true"></p-tag>
-              } @else if (reservation.payment?.method) {
-              <p-tag
-                [value]="reservation.payment.method"
-                severity="secondary"
-                [rounded]="true"
-              ></p-tag>
-              }
-            </td>
-            <td>
-              <p-tag
-                [value]="reservation.status"
-                [severity]="getStatusSeverity(reservation.status)"
-                [rounded]="true"
-              ></p-tag>
-            </td>
-          </tr>
-        </ng-template>
-      </p-table>
-    </div>
+  <div class="bg-white rounded-lg border border-slate-200 shadow-sm overflow-hidden">
+    <p-table
+      [value]="filteredReservations()"
+      [paginator]="false"
+      [rows]="rows()"
+      [first]="first()"
+      [tableStyle]="{ 'min-width': '50rem' }"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th class="text-left font-semibold text-slate-700 p-4">#</th>
+          <th class="text-left font-semibold text-slate-700 p-4">{{ t('reservation.patient') }}</th>
+          <th>{{ t('reservation.phone') }}</th>
+          <th>{{ t('reservation.date') }}</th>
+          <th>{{ t('reservation.startTime') }}</th>
+          <th>{{ t('reservation.payment') }}</th>
+          <th>{{ t('reservation.method') }}</th>
+          <th>{{ t('reservation.status') }}</th>
+          <th></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-reservation>
+        <tr>
+          <td>
+            <p class="font-medium text-slate-900">{{ reservation.reservationId }}</p>
+          </td>
+          <td>
+            <p class="font-medium text-slate-900">{{ reservation.patient?.name }}</p>
+          </td>
+          <td>
+            <p class="font-medium text-slate-900">{{ reservation.patient?.phone }}</p>
+          </td>
+          <td>
+            <p class="font-medium text-slate-900">{{ reservation.appointment?.date }}</p>
+          </td>
+          <td>
+            <p class="font-medium text-slate-900">
+              {{ reservation.appointment?.startTime }} {{ t('reservation.for') }}
+              {{ reservation.appointment?.durationMinutes }} {{ t('reservation.mins') }}
+            </p>
+          </td>
+          <td>
+            <p class="font-medium text-slate-900">
+              {{ reservation.payment?.amount }}
+            </p>
+          </td>
+          <td>
+            @if (reservation.payment?.method === 'CASH') {
+            <p-tag value="CASH" severity="success" [rounded]="true"></p-tag>
+            } @else if (reservation.payment?.method === 'CARD') {
+            <p-tag value="CARD" severity="info" [rounded]="true"></p-tag>
+            } @else if (reservation.payment?.method) {
+            <p-tag
+              [value]="reservation.payment.method"
+              severity="secondary"
+              [rounded]="true"
+            ></p-tag>
+            }
+          </td>
+          <td>
+            <p-tag
+              [value]="reservation.status"
+              [severity]="getStatusSeverity(reservation.status)"
+              [rounded]="true"
+            ></p-tag>
+          </td>
+          <td class="p-4">
+            <div class="flex items-center gap-2">
+              <button
+                type="button"
+                (click)="editReservationVisible.set(true)"
+                class="p-2 text-slate-600 hover:text-primary-600 hover:bg-primary-50 rounded transition-colors cursor-pointer"
+                [attr.aria-label]="t('patient.edit')"
+              >
+                <i class="pi pi-pencil text-sm"></i>
+              </button>
+              <button
+                type="button"
+                (click)="deleteReservationVisible.set(true)"
+                class="p-2 text-slate-600 hover:text-red-600 hover:bg-red-50 rounded transition-colors cursor-pointer"
+                [attr.aria-label]="t('patient.actions.delete')"
+                (click)="confirmDelete(reservation)"
+                severity="danger"
+              >
+                <i class="pi pi-trash text-sm"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
   </div>
 
   <p-drawer

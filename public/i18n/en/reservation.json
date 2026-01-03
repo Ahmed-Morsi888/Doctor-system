@@ -12,5 +12,6 @@
   "newReservation": "New Reservation",
   "editReservation": "Edit Reservation",
   "for": "For",
-  "mins": "Mins"
+  "mins": "Mins",
+  "method": "Method"
 }
