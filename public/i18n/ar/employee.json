@@ -1,0 +1,70 @@
+{
+  "title": "الموظفون",
+  "searchPlaceholder": "البحث بالاسم أو الرقم أو البريد الإلكتروني",
+  "newEmployee": "موظف جديد",
+  "editEmployee": "تعديل الموظف",
+  "id": "الرقم",
+  "name": "الاسم",
+  "role": "الدور",
+  "email": "البريد الإلكتروني",
+  "phoneNumber": "رقم الهاتف",
+  "department": "القسم",
+  "specialization": "التخصص",
+  "hireDate": "تاريخ التوظيف",
+  "status": "الحالة",
+  "actions": "الإجراءات",
+  "edit": "تعديل",
+  "delete": "حذف",
+  "deleteConfirmation": "هل أنت متأكد من حذف هذا الموظف؟",
+  "deleteConfirmationHeader": "منطقة الخطر",
+  "confirmed": "تم التأكيد",
+  "recordDeleted": "تم حذف الموظف بنجاح",
+  "rejected": "تم الرفض",
+  "youHaveRejected": "لقد رفضت",
+  "cancel": "إلغاء",
+  "noEmployeesFound": "لم يتم العثور على موظفين",
+  "emptyStateDescription": "حاول تعديل البحث أو إضافة موظف جديد",
+  "notProvided": "غير متوفر",
+  "roles": {
+    "all": "الكل",
+    "doctor": "طبيب",
+    "receptionist": "موظف استقبال"
+  },
+  "status": {
+    "active": "نشط",
+    "inactive": "غير نشط"
+  },
+  "tabs": {
+    "information": "المعلومات",
+    "schedule": "الجدول",
+    "performance": "الأداء",
+    "documents": "المستندات"
+  },
+  "sections": {
+    "personalInfo": "المعلومات الشخصية",
+    "professionalInfo": "المعلومات المهنية"
+  },
+  "fields": {
+    "fullName": "الاسم الكامل",
+    "email": "البريد الإلكتروني",
+    "phoneNumber": "رقم الهاتف",
+    "role": "الدور",
+    "department": "القسم",
+    "specialization": "التخصص",
+    "hireDate": "تاريخ التوظيف",
+    "status": "الحالة"
+  },
+  "notFound": "الموظف غير موجود",
+  "schedule": {
+    "empty": "لا توجد معلومات جدول متاحة"
+  },
+  "performance": {
+    "empty": "لا توجد بيانات أداء متاحة"
+  },
+  "documents": {
+    "empty": "لا توجد مستندات متاحة"
+  },
+  "createFormPlaceholder": "سيتم تنفيذ نموذج إنشاء الموظف هنا",
+  "editFormPlaceholder": "سيتم تنفيذ نموذج تعديل الموظف هنا"
+}
+

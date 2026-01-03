@@ -1,0 +1,70 @@
+{
+  "title": "Employees",
+  "searchPlaceholder": "Search by name, ID, or email",
+  "newEmployee": "New Employee",
+  "editEmployee": "Edit Employee",
+  "id": "ID",
+  "name": "Name",
+  "role": "Role",
+  "email": "Email",
+  "phoneNumber": "Phone Number",
+  "department": "Department",
+  "specialization": "Specialization",
+  "hireDate": "Hire Date",
+  "status": "Status",
+  "actions": "Actions",
+  "edit": "Edit",
+  "delete": "Delete",
+  "deleteConfirmation": "Do you want to delete this employee?",
+  "deleteConfirmationHeader": "Danger Zone",
+  "confirmed": "Confirmed",
+  "recordDeleted": "Employee deleted successfully",
+  "rejected": "Rejected",
+  "youHaveRejected": "You have rejected",
+  "cancel": "Cancel",
+  "noEmployeesFound": "No employees found",
+  "emptyStateDescription": "Try adjusting your search or add a new employee",
+  "notProvided": "Not provided",
+  "roles": {
+    "all": "All",
+    "doctor": "Doctor",
+    "receptionist": "Receptionist"
+  },
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive"
+  },
+  "tabs": {
+    "information": "Information",
+    "schedule": "Schedule",
+    "performance": "Performance",
+    "documents": "Documents"
+  },
+  "sections": {
+    "personalInfo": "Personal Information",
+    "professionalInfo": "Professional Information"
+  },
+  "fields": {
+    "fullName": "Full Name",
+    "email": "Email",
+    "phoneNumber": "Phone Number",
+    "role": "Role",
+    "department": "Department",
+    "specialization": "Specialization",
+    "hireDate": "Hire Date",
+    "status": "Status"
+  },
+  "notFound": "Employee not found",
+  "schedule": {
+    "empty": "No schedule information available"
+  },
+  "performance": {
+    "empty": "No performance data available"
+  },
+  "documents": {
+    "empty": "No documents available"
+  },
+  "createFormPlaceholder": "Employee creation form will be implemented here",
+  "editFormPlaceholder": "Employee edit form will be implemented here"
+}
+

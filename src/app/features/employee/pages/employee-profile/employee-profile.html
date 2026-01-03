@@ -1,0 +1,313 @@
+<div
+  class="p-8 bg-gray-50 min-h-screen"
+  *transloco="let t; scope: 'employee'"
+  [attr.dir]="languageService.isRTL() ? 'rtl' : 'ltr'"
+>
+  <p-toast />
+  @if (employee(); as employeeData) {
+  <!-- Header -->
+  <div
+    class="mb-6 flex items-center justify-between"
+    [class.flex-row-reverse]="languageService.isRTL()"
+  >
+    <h1 class="text-2xl font-bold text-gray-900 uppercase">
+      {{ employeeData.name }}
+    </h1>
+
+    <!-- Tabs Navigation -->
+    <div class="flex items-center gap-2" [class.flex-row-reverse]="languageService.isRTL()">
+      <nav
+        class="flex items-center gap-1 border-b border-gray-300"
+        [class.flex-row-reverse]="languageService.isRTL()"
+      >
+        <button
+          type="button"
+          (click)="setActiveTab('information')"
+          [class.border-b-2]="activeTab() === 'information'"
+          [class.border-primary-600]="activeTab() === 'information'"
+          [class.text-primary-600]="activeTab() === 'information'"
+          [class.text-gray-600]="activeTab() !== 'information'"
+          class="px-4 py-2 text-sm font-medium transition-colors hover:text-primary-600"
+        >
+          {{ t('employee.tabs.information') }}
+        </button>
+        <button
+          type="button"
+          (click)="setActiveTab('schedule')"
+          [class.border-b-2]="activeTab() === 'schedule'"
+          [class.border-primary-600]="activeTab() === 'schedule'"
+          [class.text-primary-600]="activeTab() === 'schedule'"
+          [class.text-gray-600]="activeTab() !== 'schedule'"
+          class="px-4 py-2 text-sm font-medium transition-colors hover:text-primary-600"
+        >
+          {{ t('employee.tabs.schedule') }}
+        </button>
+        <button
+          type="button"
+          (click)="setActiveTab('performance')"
+          [class.border-b-2]="activeTab() === 'performance'"
+          [class.border-primary-600]="activeTab() === 'performance'"
+          [class.text-primary-600]="activeTab() === 'performance'"
+          [class.text-gray-600]="activeTab() !== 'performance'"
+          class="px-4 py-2 text-sm font-medium transition-colors hover:text-primary-600"
+        >
+          {{ t('employee.tabs.performance') }}
+        </button>
+        <button
+          type="button"
+          (click)="setActiveTab('documents')"
+          [class.border-b-2]="activeTab() === 'documents'"
+          [class.border-primary-600]="activeTab() === 'documents'"
+          [class.text-primary-600]="activeTab() === 'documents'"
+          [class.text-gray-600]="activeTab() !== 'documents'"
+          class="px-4 py-2 text-sm font-medium transition-colors hover:text-primary-600"
+        >
+          {{ t('employee.tabs.documents') }}
+        </button>
+      </nav>
+      @if (!isEditMode()) {
+      <button
+        type="button"
+        (click)="toggleEditMode()"
+        [class.ml-4]="!languageService.isRTL()"
+        [class.mr-4]="languageService.isRTL()"
+        class="flex h-9 w-9 items-center justify-center rounded-lg border border-gray-300 bg-white text-gray-700 transition-colors hover:bg-gray-50"
+        [attr.aria-label]="t('employee.edit')"
+      >
+        <i class="pi pi-pencil text-sm"></i>
+      </button>
+      } @else {
+      <div class="flex items-center gap-2" [class.flex-row-reverse]="languageService.isRTL()">
+        <p-button
+          [label]="t('common.save')"
+          [icon]="'pi pi-check'"
+          severity="primary"
+          (onClick)="saveEmployee()"
+        />
+        <p-button
+          [label]="t('common.cancel')"
+          [icon]="'pi pi-times'"
+          severity="secondary"
+          [outlined]="true"
+          (onClick)="cancelEdit()"
+        />
+      </div>
+      }
+    </div>
+  </div>
+
+  <!-- Content based on active tab -->
+  @if (activeTab() === 'information') {
+  <!-- Information Tab Content -->
+  <div class="space-y-6">
+    <!-- Personal Information Section -->
+    <div class="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
+      <div
+        class="border-l-4 border-primary-600 bg-primary-50 px-6 py-4 rtl:border-l-0 rtl:border-r-4"
+      >
+        <h2 class="text-lg font-bold text-primary-700">
+          {{ t('employee.sections.personalInfo') }}
+        </h2>
+      </div>
+      <div class="p-6">
+        <form>
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div>
+              <label class="block text-sm font-medium text-gray-600">{{
+                t('employee.fields.fullName')
+              }}</label>
+              @if (isEditMode()) {
+              <input
+                [field]="employeeForm.name"
+                type="text"
+                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              />
+              } @else {
+              <p class="mt-1 text-base font-semibold text-gray-900">{{ employeeData.name }}</p>
+              }
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-600">{{
+                t('employee.fields.email')
+              }}</label>
+              @if (isEditMode()) {
+              <input
+                [field]="employeeForm.email"
+                type="email"
+                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              />
+              } @else {
+              <p class="mt-1 text-base font-semibold text-gray-900">{{ employeeData.email }}</p>
+              }
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-600">{{
+                t('employee.fields.phoneNumber')
+              }}</label>
+              @if (isEditMode()) {
+              <input
+                [field]="employeeForm.phoneNumber"
+                type="tel"
+                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              />
+              } @else {
+              <p class="mt-1 text-base font-semibold text-gray-900">
+                {{ employeeData.phoneNumber }}
+              </p>
+              }
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-600">{{
+                t('employee.fields.status')
+              }}</label>
+              @if (isEditMode()) {
+              <select
+                [field]="employeeForm.status"
+                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              >
+                @for (option of statusOptions; track option.value) {
+                <option [value]="option.value">
+                  {{ t('employee.status.' + option.value.toLowerCase()) }}
+                </option>
+                }
+              </select>
+              } @else {
+              <div class="mt-1">
+                <p-tag
+                  [value]="employeeData.status"
+                  [severity]="getStatusSeverity(employeeData.status)"
+                  [rounded]="true"
+                />
+              </div>
+              }
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Professional Information Section -->
+    <div class="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
+      <div
+        class="border-l-4 border-primary-600 bg-primary-50 px-6 py-4 rtl:border-l-0 rtl:border-r-4"
+      >
+        <h2 class="text-lg font-bold text-primary-700">
+          {{ t('employee.sections.professionalInfo') }}
+        </h2>
+      </div>
+      <div class="p-6">
+        <form>
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div>
+              <label class="block text-sm font-medium text-gray-600">{{
+                t('employee.fields.role')
+              }}</label>
+              @if (isEditMode()) {
+              <select
+                [field]="employeeForm.role"
+                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              >
+                @for (option of roleOptions; track option.value) {
+                <option [value]="option.value">
+                  {{ t('employee.roles.' + option.value.toLowerCase()) }}
+                </option>
+                }
+              </select>
+              } @else {
+              <div class="mt-1">
+                <p-tag
+                  [value]="t('employee.roles.' + employeeData.role.toLowerCase())"
+                  [severity]="getRoleSeverity(employeeData.role)"
+                  [rounded]="true"
+                />
+              </div>
+              }
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-600">{{
+                t('employee.fields.department')
+              }}</label>
+              @if (isEditMode()) {
+              <input
+                [field]="employeeForm.department"
+                type="text"
+                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                [placeholder]="t('employee.notProvided')"
+              />
+              } @else {
+              <p class="mt-1 text-base font-semibold text-gray-900">
+                {{ employeeData.department || t('employee.notProvided') }}
+              </p>
+              }
+            </div>
+            @if (employeeData.role === 'Doctor' || isEditMode()) {
+            <div>
+              <label class="block text-sm font-medium text-gray-600">{{
+                t('employee.fields.specialization')
+              }}</label>
+              @if (isEditMode()) {
+              <input
+                [field]="employeeForm.specialization"
+                type="text"
+                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                [placeholder]="t('employee.notProvided')"
+              />
+              } @else {
+              <p class="mt-1 text-base font-semibold text-gray-900">
+                {{ employeeData.specialization || t('employee.notProvided') }}
+              </p>
+              }
+            </div>
+            }
+            <div>
+              <label class="block text-sm font-medium text-gray-600">{{
+                t('employee.fields.hireDate')
+              }}</label>
+              @if (isEditMode()) {
+              <input
+                [field]="employeeForm.hireDate"
+                type="date"
+                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              />
+              } @else {
+              <p class="mt-1 text-base font-semibold text-gray-900">{{ employeeData.hireDate }}</p>
+              }
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  } @else if (activeTab() === 'schedule') {
+  <!-- Schedule Tab -->
+  <div class="bg-white rounded-lg border border-gray-200 shadow-sm p-6">
+    <p class="text-gray-600">{{ t('employee.schedule.empty') }}</p>
+  </div>
+  } @else if (activeTab() === 'performance') {
+  <!-- Performance Tab -->
+  <div class="bg-white rounded-lg border border-gray-200 shadow-sm p-6">
+    <p class="text-gray-600">{{ t('employee.performance.empty') }}</p>
+  </div>
+  } @else if (activeTab() === 'documents') {
+  <!-- Documents Tab -->
+  <div class="bg-white rounded-lg border border-gray-200 shadow-sm p-6">
+    <p class="text-gray-600">{{ t('employee.documents.empty') }}</p>
+  </div>
+  } } @else {
+  <!-- Employee Not Found -->
+  <div class="flex flex-col items-center justify-center py-12 text-center">
+    <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gray-100">
+      <i class="pi pi-user-times text-3xl text-gray-400"></i>
+    </div>
+    <p class="text-lg font-semibold text-gray-700">{{ t('employee.notFound') }}</p>
+    <p-button
+      [label]="t('common.back')"
+      [icon]="'pi pi-arrow-left'"
+      severity="secondary"
+      [outlined]="true"
+      (onClick)="goBack()"
+      class="mt-4"
+    />
+  </div>
+  }
+</div>
