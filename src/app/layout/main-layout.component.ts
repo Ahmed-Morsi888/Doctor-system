@@ -35,7 +35,7 @@ import { LanguageService, SidebarService } from '../core/services';
         [style.width]="sidebarService.isCollapsed() ? 'calc(100vw - 80px)' : 'calc(100vw - clamp(250px, 30vw, 250px))'"
       >
         <!-- Page Content -->
-        <main class="min-w-0 flex-1 overflow-y-auto bg-slate-50 p-0">
+        <main class="min-w-0 flex-1 overflow-y-auto bg-gray-100 p-0">
           <router-outlet></router-outlet>
         </main>
       </div>
