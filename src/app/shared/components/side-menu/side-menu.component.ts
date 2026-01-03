@@ -42,8 +42,8 @@ export interface MenuItem {
     >
       <!-- Logo/Header -->
       <div class="relative flex h-[70px] items-center gap-2 border-b border-white/10 px-4 py-4 collapsed:justify-center collapsed:px-4">
-        <div class="flex flex-1 items-center gap-4 min-w-0 collapsed:flex-none collapsed:w-full collapsed:justify-center">
-          <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-primary-600 to-primary-500 text-xl font-bold text-white">
+        <div class="flex flex-1 items-center gap-4 min-w-0 collapsed:flex-none collapsed:w-full collapsed:justify-center collapsed:items-center">
+          <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary-600 text-xl font-bold text-white">
             B
           </div>
           <span
@@ -57,14 +57,14 @@ export interface MenuItem {
         </div>
         <button
           type="button"
-          class="flex h-8 w-8 shrink-0 items-center justify-center rounded bg-primary-100 text-primary-600 transition-all duration-200 hover:bg-primary-200 hover:text-primary-700 collapsed:absolute collapsed:top-4 collapsed:right-2 rtl:collapsed:right-auto rtl:collapsed:left-2"
+          class="flex h-10 w-10 shrink-0 items-center justify-center rounded bg-primary-100 text-primary-600 transition-all duration-200 hover:bg-primary-200 hover:text-primary-700 collapsed:absolute collapsed:top-4 collapsed:right-2 rtl:collapsed:right-auto rtl:collapsed:left-2"
           (click)="toggleSidebar()"
           [attr.aria-label]="sidebarService.isCollapsed() ? 'Expand sidebar' : 'Collapse sidebar'"
           [attr.title]="sidebarService.isCollapsed() ? 'Expand' : 'Collapse'"
         >
           <i
             [class]="sidebarService.isCollapsed() ? 'pi pi-angle-right' : 'pi pi-angle-left'"
-            class="text-base transition-transform duration-200 text-primary-600"
+            class="text-xl transition-transform duration-200 text-primary-600"
             [class.rotate-180]="(!languageService.isRTL() && sidebarService.isCollapsed()) || (languageService.isRTL() && !sidebarService.isCollapsed())"
           ></i>
         </button>

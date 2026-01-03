@@ -30,9 +30,9 @@ import { LanguageService, SidebarService } from '../core/services';
       <!-- Main Content Area -->
       <div
         class="flex min-w-0 flex-1 flex-col transition-[margin-left,margin-right,width] duration-200 ease-in-out max-md:ml-0 rtl:max-md:mr-0"
-        [style.margin-left]="languageService.isRTL() ? '0' : (sidebarService.isCollapsed() ? '80px' : 'clamp(250px, 30vw, 350px)')"
-        [style.margin-right]="languageService.isRTL() ? (sidebarService.isCollapsed() ? '80px' : 'clamp(250px, 30vw, 350px)') : '0'"
-        [style.width]="sidebarService.isCollapsed() ? 'calc(100vw - 80px)' : 'calc(100vw - clamp(250px, 30vw, 350px))'"
+        [style.margin-left]="languageService.isRTL() ? '0' : (sidebarService.isCollapsed() ? '80px' : 'clamp(250px, 30vw, 250px)')"
+        [style.margin-right]="languageService.isRTL() ? (sidebarService.isCollapsed() ? '80px' : 'clamp(250px, 30vw, 250px)') : '0'"
+        [style.width]="sidebarService.isCollapsed() ? 'calc(100vw - 80px)' : 'calc(100vw - clamp(250px, 30vw, 250px))'"
       >
         <!-- Page Content -->
         <main class="min-w-0 flex-1 overflow-y-auto bg-slate-50 p-0">
