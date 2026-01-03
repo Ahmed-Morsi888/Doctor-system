@@ -1,3 +1,11 @@
 {
-  "title": "Reservations"
+  "title": "Reservations",
+  "patient": "Patient",
+  "phone": "Phone",
+  "appointment": "Appointment",
+  "payment": "Payment",
+  "status": "Status",
+  "date": "Date",
+  "startTime": "Start Time",
+  "durationMinutes": "Duration Minutes"
 }
