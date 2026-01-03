@@ -110,79 +110,75 @@
         </h2>
       </div>
       <div class="p-6">
-        <form>
-          <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <div>
-              <label class="block text-sm font-medium text-gray-600">{{
-                t('employee.fields.fullName')
-              }}</label>
-              @if (isEditMode()) {
-              <input
-                [field]="employeeForm.name"
-                type="text"
-                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
-              />
-              } @else {
-              <p class="mt-1 text-base font-semibold text-gray-900">{{ employeeData.name }}</p>
-              }
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-600">{{
-                t('employee.fields.email')
-              }}</label>
-              @if (isEditMode()) {
-              <input
-                [field]="employeeForm.email"
-                type="email"
-                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
-              />
-              } @else {
-              <p class="mt-1 text-base font-semibold text-gray-900">{{ employeeData.email }}</p>
-              }
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-600">{{
-                t('employee.fields.phoneNumber')
-              }}</label>
-              @if (isEditMode()) {
-              <input
-                [field]="employeeForm.phoneNumber"
-                type="tel"
-                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
-              />
-              } @else {
-              <p class="mt-1 text-base font-semibold text-gray-900">
-                {{ employeeData.phoneNumber }}
-              </p>
-              }
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-600">{{
-                t('employee.fields.status')
-              }}</label>
-              @if (isEditMode()) {
-              <select
-                [field]="employeeForm.status"
-                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
-              >
-                @for (option of statusOptions; track option.value) {
-                <option [value]="option.value">
-                  {{ t('employee.status.' + option.value.toLowerCase()) }}
-                </option>
-                }
-              </select>
-              } @else {
-              <div class="mt-1">
-                <p-tag
-                  [value]="employeeData.status"
-                  [severity]="getStatusSeverity(employeeData.status)"
-                  [rounded]="true"
-                />
-              </div>
-              }
-            </div>
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div>
+            <label class="block text-sm font-medium text-gray-600">{{
+              t('employee.fields.fullName')
+            }}</label>
+            @if (isEditMode()) {
+            <input
+              [field]="employeeForm.name"
+              type="text"
+              class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+            />
+            } @else {
+            <p class="mt-1 text-base font-semibold text-gray-900">{{ employeeData.name }}</p>
+            }
           </div>
-        </form>
+          <div>
+            <label class="block text-sm font-medium text-gray-600">{{
+              t('employee.fields.email')
+            }}</label>
+            @if (isEditMode()) {
+            <input
+              [field]="employeeForm.email"
+              type="email"
+              class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+            />
+            } @else {
+            <p class="mt-1 text-base font-semibold text-gray-900">{{ employeeData.email }}</p>
+            }
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-600">{{
+              t('employee.fields.phoneNumber')
+            }}</label>
+            @if (isEditMode()) {
+            <input
+              [field]="employeeForm.phoneNumber"
+              type="tel"
+              class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+            />
+            } @else {
+            <p class="mt-1 text-base font-semibold text-gray-900">
+              {{ employeeData.phoneNumber }}
+            </p>
+            }
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-600">{{
+              t('employee.fields.status')
+            }}</label>
+            @if (isEditMode()) {
+            <select
+              [field]="employeeForm.status"
+              class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+            >
+              @for (option of statusOptions(); track option.value) {
+              <option [value]="option.value">{{ option.label }}</option>
+              }
+            </select>
+            } @else {
+            <div class="mt-1">
+              <p-tag
+                [value]="employeeData.status"
+                [severity]="getStatusSeverity(employeeData.status)"
+                [rounded]="true"
+              />
+            </div>
+            }
+          </div>
+        </div>
       </div>
     </div>
 
@@ -196,85 +192,81 @@
         </h2>
       </div>
       <div class="p-6">
-        <form>
-          <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <div>
-              <label class="block text-sm font-medium text-gray-600">{{
-                t('employee.fields.role')
-              }}</label>
-              @if (isEditMode()) {
-              <select
-                [field]="employeeForm.role"
-                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
-              >
-                @for (option of roleOptions; track option.value) {
-                <option [value]="option.value">
-                  {{ t('employee.roles.' + option.value.toLowerCase()) }}
-                </option>
-                }
-              </select>
-              } @else {
-              <div class="mt-1">
-                <p-tag
-                  [value]="t('employee.roles.' + employeeData.role.toLowerCase())"
-                  [severity]="getRoleSeverity(employeeData.role)"
-                  [rounded]="true"
-                />
-              </div>
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div>
+            <label class="block text-sm font-medium text-gray-600">{{
+              t('employee.fields.role')
+            }}</label>
+            @if (isEditMode()) {
+            <select
+              [field]="employeeForm.role"
+              class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+            >
+              @for (option of roleOptions(); track option.value) {
+              <option [value]="option.value">{{ option.label }}</option>
               }
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-600">{{
-                t('employee.fields.department')
-              }}</label>
-              @if (isEditMode()) {
-              <input
-                [field]="employeeForm.department"
-                type="text"
-                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
-                [placeholder]="t('employee.notProvided')"
+            </select>
+            } @else {
+            <div class="mt-1">
+              <p-tag
+                [value]="t('employee.roles.' + employeeData.role.toLowerCase())"
+                [severity]="getRoleSeverity(employeeData.role)"
+                [rounded]="true"
               />
-              } @else {
-              <p class="mt-1 text-base font-semibold text-gray-900">
-                {{ employeeData.department || t('employee.notProvided') }}
-              </p>
-              }
-            </div>
-            @if (employeeData.role === 'Doctor' || isEditMode()) {
-            <div>
-              <label class="block text-sm font-medium text-gray-600">{{
-                t('employee.fields.specialization')
-              }}</label>
-              @if (isEditMode()) {
-              <input
-                [field]="employeeForm.specialization"
-                type="text"
-                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
-                [placeholder]="t('employee.notProvided')"
-              />
-              } @else {
-              <p class="mt-1 text-base font-semibold text-gray-900">
-                {{ employeeData.specialization || t('employee.notProvided') }}
-              </p>
-              }
             </div>
             }
-            <div>
-              <label class="block text-sm font-medium text-gray-600">{{
-                t('employee.fields.hireDate')
-              }}</label>
-              @if (isEditMode()) {
-              <input
-                [field]="employeeForm.hireDate"
-                type="date"
-                class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
-              />
-              } @else {
-              <p class="mt-1 text-base font-semibold text-gray-900">{{ employeeData.hireDate }}</p>
-              }
-            </div>
           </div>
-        </form>
+          <div>
+            <label class="block text-sm font-medium text-gray-600">{{
+              t('employee.fields.department')
+            }}</label>
+            @if (isEditMode()) {
+            <input
+              [field]="employeeForm.department"
+              type="text"
+              class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              [placeholder]="t('employee.notProvided')"
+            />
+            } @else {
+            <p class="mt-1 text-base font-semibold text-gray-900">
+              {{ employeeData.department || t('employee.notProvided') }}
+            </p>
+            }
+          </div>
+          @if (employeeData.role === 'Doctor' || isEditMode()) {
+          <div>
+            <label class="block text-sm font-medium text-gray-600">{{
+              t('employee.fields.specialization')
+            }}</label>
+            @if (isEditMode()) {
+            <input
+              [field]="employeeForm.specialization"
+              type="text"
+              class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              [placeholder]="t('employee.notProvided')"
+            />
+            } @else {
+            <p class="mt-1 text-base font-semibold text-gray-900">
+              {{ employeeData.specialization || t('employee.notProvided') }}
+            </p>
+            }
+          </div>
+          }
+          <div>
+            <label class="block text-sm font-medium text-gray-600">{{
+              t('employee.fields.hireDate')
+            }}</label>
+            @if (isEditMode()) {
+            <input
+              [field]="employeeForm.hireDate"
+              type="date"
+              class="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+            />
+            } @else {
+            <p class="mt-1 text-base font-semibold text-gray-900">{{ employeeData.hireDate }}</p>
+            }
+          </div>
+        </div>
       </div>
     </div>
   </div>

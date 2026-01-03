@@ -1,8 +1,8 @@
 import { Component, computed, OnInit, inject, signal, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { form, Field, required, email } from '@angular/forms/signals';
-import { ActivatedRoute, Router } from '@angular/router';
-import { TranslocoModule } from '@jsverse/transloco';
+import { Router } from '@angular/router';
+import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
 import { AvatarModule } from 'primeng/avatar';
@@ -41,6 +41,7 @@ export class EmployeeProfile implements OnInit {
   private readonly router = inject(Router);
   private readonly messageService = inject(MessageService);
   protected readonly languageService = inject(LanguageService);
+  private readonly t = inject(TranslocoService);
 
   readonly id = input<string>();
   protected readonly employee = computed<Employee | undefined>(() =>
@@ -53,7 +54,7 @@ export class EmployeeProfile implements OnInit {
   // Edit mode
   protected readonly isEditMode = signal(false);
 
-  // Form model signal
+  // Form model signal for Angular 21 Signal Forms
   protected readonly employeeModel = signal({
     name: '',
     email: '',
@@ -73,20 +74,19 @@ export class EmployeeProfile implements OnInit {
     required(schemaPath.phoneNumber);
   });
 
-  // Role options for dropdown
-  protected readonly roleOptions: Array<{ label: string; value: EmployeeRole }> = [
-    { label: 'Doctor', value: 'Doctor' },
-    { label: 'Receptionist', value: 'Receptionist' },
-  ];
+  // Role options for dropdown (with translated labels)
+  protected readonly roleOptions = computed<Array<{ label: string; value: EmployeeRole }>>(() => [
+    { label: this.t.translate('employee.roles.doctor'), value: 'Doctor' as EmployeeRole },
+    { label: this.t.translate('employee.roles.receptionist'), value: 'Receptionist' as EmployeeRole },
+  ]);
 
-  // Status options
-  protected readonly statusOptions: Array<{ label: string; value: 'Active' | 'Inactive' }> = [
-    { label: 'Active', value: 'Active' },
-    { label: 'Inactive', value: 'Inactive' },
-  ];
+  // Status options (with translated labels)
+  protected readonly statusOptions = computed<Array<{ label: string; value: 'Active' | 'Inactive' }>>(() => [
+    { label: this.t.translate('employee.status.active'), value: 'Active' as 'Active' | 'Inactive' },
+    { label: this.t.translate('employee.status.inactive'), value: 'Inactive' as 'Active' | 'Inactive' },
+  ]);
 
   ngOnInit(): void {
-
     console.log('employee profile', this.id());
     if (!this.employee()) {
       // Employee not found, redirect back to list
