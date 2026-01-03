@@ -15,11 +15,12 @@ import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { LanguageService } from '../../../core/services/language.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { PaginatorModule } from 'primeng/paginator';
 
 @Component({
   selector: 'app-reservation-page',
   standalone: true,
-  imports: [CommonModule, TranslocoModule, ButtonModule, TableModule, TagModule, IconFieldModule, InputIconModule, InputTextModule, DrawerModule, ToastModule, ConfirmDialogModule],
+  imports: [CommonModule, TranslocoModule, ButtonModule, TableModule, TagModule, IconFieldModule, InputIconModule, InputTextModule, DrawerModule, ToastModule, ConfirmDialogModule, PaginatorModule],
   templateUrl: './reservation.page.html',
   providers: [ConfirmationService, MessageService]
 

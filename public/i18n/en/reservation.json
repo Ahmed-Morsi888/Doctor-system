@@ -13,5 +13,7 @@
   "editReservation": "Edit Reservation",
   "for": "For",
   "mins": "Mins",
-  "method": "Method"
+  "method": "Method",
+  "noReservationsFound": "No reservations found",
+  "emptyStateDescription": "Try adjusting your search or add a new reservation"
 }
