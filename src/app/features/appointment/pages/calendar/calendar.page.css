@@ -1,1 +1,32 @@
-/* Calendar specific styles if needed */
+/* Calendar specific styles */
+.calendar-time-slot {
+  position: relative;
+  min-height: 60px;
+}
+
+.calendar-event {
+  position: absolute;
+  z-index: 10;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.calendar-event:hover {
+  z-index: 20;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Week view day header highlight */
+.week-day-header {
+  transition: background-color 0.2s;
+}
+
+.week-day-header.today {
+  background-color: rgb(147, 51, 234); /* purple-600 */
+  color: white;
+}

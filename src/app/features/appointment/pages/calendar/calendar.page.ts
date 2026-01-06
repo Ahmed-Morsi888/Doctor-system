@@ -36,7 +36,7 @@ export class CalendarPage implements OnInit, OnDestroy {
   protected readonly drawerPosition = computed(() => (this.languageService.isRTL() ? 'left' : 'right'));
 
   // Current view (daily/weekly/monthly)
-  protected readonly currentView = signal<CalendarView>('monthly');
+  protected readonly currentView = signal<CalendarView>('weekly');
 
   // Current date (used for navigation)
   protected readonly currentDate = signal<Date>(new Date()); // January 1, 2026
@@ -204,35 +204,41 @@ export class CalendarPage implements OnInit, OnDestroy {
   }
 
   /**
-   * Generate days for weekly view
+   * Generate days for weekly view (Sunday to Saturday)
    */
   private generateWeekDays(date: Date): CalendarDay[] {
     const days: CalendarDay[] = [];
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
-    // Get Monday of the week
-    const monday = this.getMonday(date);
-    monday.setHours(0, 0, 0, 0);
+    // Get Sunday of the week (start of week)
+    const sunday = this.getSunday(date);
+    sunday.setHours(0, 0, 0, 0);
 
     for (let i = 0; i < 7; i++) {
-      const dayDate = new Date(monday);
-      dayDate.setDate(monday.getDate() + i);
+      const dayDate = new Date(sunday);
+      dayDate.setDate(sunday.getDate() + i);
       dayDate.setHours(0, 0, 0, 0);
       const dayAppointments = this.getAppointmentsForDate(dayDate);
-      const visibleAppointments = dayAppointments.slice(0, 2);
-      const overflowCount = dayAppointments.length > 2 ? dayAppointments.length - 2 : undefined;
 
       days.push({
         date: dayDate,
         isCurrentMonth: true,
         isToday: this.isSameDay(dayDate, today),
-        appointments: visibleAppointments,
-        overflowCount,
+        appointments: dayAppointments,
       });
     }
 
     return days;
+  }
+
+  /**
+   * Get Sunday of the week for a given date
+   */
+  private getSunday(date: Date): Date {
+    const day = date.getDay(); // 0 = Sunday, 1 = Monday, etc.
+    const diff = date.getDate() - day; // Subtract days to get to Sunday
+    return new Date(date.setDate(diff));
   }
 
   /**
@@ -251,6 +257,244 @@ export class CalendarPage implements OnInit, OnDestroy {
       isToday: this.isSameDay(dayDate, today),
       appointments: dayAppointments,
     }];
+  }
+
+  /**
+   * Generate time slots for the day (hourly from 12:00 AM to 11:00 PM)
+   * Localized AM/PM indicators
+   */
+  protected getTimeSlots(): string[] {
+    const slots: string[] = ['All Day'];
+    const locale = this.languageService.currentLanguage() === 'ar' ? 'ar-SA' : 'en-US';
+    const isArabic = this.languageService.currentLanguage() === 'ar';
+
+    for (let hour = 0; hour < 24; hour++) {
+      const date = new Date();
+      date.setHours(hour, 0, 0, 0);
+
+      // Use Intl.DateTimeFormat for proper localization
+      const timeString = date.toLocaleTimeString(locale, {
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true
+      });
+
+      slots.push(timeString);
+    }
+    return slots;
+  }
+
+  /**
+   * Get appointments for a specific day and time slot
+   */
+  protected getAppointmentsForTimeSlot(day: Date, timeSlot: string): Appointment[] {
+    if (timeSlot === 'All Day') {
+      // Return all-day appointments (or appointments without specific time)
+      return this.getAppointmentsForDate(day).filter(apt => !apt.startTime || apt.startTime === '');
+    }
+
+    // Parse time slot to hour
+    const hour = this.parseTimeSlotToHour(timeSlot);
+    if (hour === null) return [];
+
+    // Get appointments that fall within this hour
+    return this.getAppointmentsForDate(day).filter(apt => {
+      if (!apt.startTime) return false;
+      const aptHour = this.parseTimeToHour(apt.startTime);
+      return aptHour === hour;
+    });
+  }
+
+  /**
+   * Parse time slot string to hour (0-23)
+   * Handles both English (AM/PM) and Arabic (ص/م) formats, as well as localized formats from Intl
+   */
+  private parseTimeSlotToHour(timeSlot: string): number | null {
+    // Try English format first (AM/PM)
+    let match = timeSlot.match(/(\d+):\d+\s*(AM|PM)/i);
+    if (match) {
+      let hour = parseInt(match[1], 10);
+      const period = match[2].toUpperCase();
+
+      if (period === 'AM') {
+        return hour === 12 ? 0 : hour;
+      } else {
+        return hour === 12 ? 12 : hour + 12;
+      }
+    }
+
+    // Try Arabic format (ص/م) - صباحاً (AM) / مساءً (PM)
+    match = timeSlot.match(/(\d+):\d+\s*(ص|م)/);
+    if (match) {
+      let hour = parseInt(match[1], 10);
+      const period = match[2];
+
+      if (period === 'ص') { // صباحاً (AM)
+        return hour === 12 ? 0 : hour;
+      } else { // مساءً (PM)
+        return hour === 12 ? 12 : hour + 12;
+      }
+    }
+
+    // Fallback: try to parse as 24-hour format (HH:mm)
+    match = timeSlot.match(/(\d+):\d+/);
+    if (match) {
+      const hour = parseInt(match[1], 10);
+      if (hour >= 0 && hour < 24) {
+        return hour;
+      }
+    }
+
+    return null;
+  }
+
+  /**
+   * Parse time string (HH:mm) to hour (0-23)
+   */
+  private parseTimeToHour(time: string): number {
+    const [hours] = time.split(':').map(Number);
+    return hours;
+  }
+
+  /**
+   * Format time from 24-hour format (HH:mm) to 12-hour format (h:mm AM/PM)
+   * Localized AM/PM indicators based on current language
+   */
+  protected formatTime(time: string): string {
+    if (!time || time === '') return '';
+
+    const locale = this.languageService.currentLanguage() === 'ar' ? 'ar-SA' : 'en-US';
+    const [hours, minutes] = time.split(':').map(Number);
+
+    // Create a date object with the time
+    const date = new Date();
+    date.setHours(hours, minutes, 0, 0);
+
+    // Use Intl.DateTimeFormat for proper localization
+    return date.toLocaleTimeString(locale, {
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true
+    });
+  }
+
+  /**
+   * Get events grouped by start time for a specific day
+   * This helps calculate offsets for overlapping events
+   */
+  protected getGroupedEventsByTime(day: Date): Map<string, Appointment[]> {
+    const appointments = this.getAppointmentsForDate(day).filter(apt => apt.startTime && apt.startTime !== '');
+    const grouped = new Map<string, Appointment[]>();
+
+    appointments.forEach(apt => {
+      const timeKey = apt.startTime;
+      if (!grouped.has(timeKey)) {
+        grouped.set(timeKey, []);
+      }
+      grouped.get(timeKey)!.push(apt);
+    });
+
+    return grouped;
+  }
+
+  /**
+   * Get the index of an event within its time group
+   */
+  protected getEventIndexInGroup(day: Date, appointment: Appointment): number {
+    const grouped = this.getGroupedEventsByTime(day);
+    const timeKey = appointment.startTime || '';
+    const eventsAtSameTime = grouped.get(timeKey) || [];
+
+    // Sort by ID to ensure consistent ordering
+    const sorted = [...eventsAtSameTime].sort((a, b) => a.id.localeCompare(b.id));
+    return sorted.findIndex(apt => apt.id === appointment.id);
+  }
+
+  /**
+   * Calculate event position and height based on start time and duration
+   * Position is calculated relative to the day container (which includes All Day + 24 hour slots)
+   * Also handles stacking of events with the same start time
+   */
+  protected getEventStyle(day: Date, appointment: Appointment): { top: string; height: string; left?: string; width?: string; right?: string } {
+    if (!appointment.startTime || appointment.startTime === '') {
+      return { top: '0px', height: '60px' }; // All-day event (first slot)
+    }
+
+    const [hours, minutes] = appointment.startTime.split(':').map(Number);
+    const durationHours = appointment.durationMinutes / 60;
+
+    // Each time slot is 60px (min-h-[60px])
+    const slotHeight = 60; // Each hour slot height in pixels
+    const allDaySlotHeight = 60; // All Day slot height
+
+    // Calculate top position: All Day slot + (hour * slotHeight) + (minutes/60 * slotHeight)
+    const topPixels = allDaySlotHeight + (hours * slotHeight) + (minutes / 60 * slotHeight);
+
+    // Calculate height based on duration
+    const heightPixels = Math.max((durationHours * slotHeight), 55); // Minimum 30px height
+
+    // Handle overlapping events - stack them side by side
+    const grouped = this.getGroupedEventsByTime(day);
+    const eventsAtSameTime = grouped.get(appointment.startTime) || [];
+    const eventIndex = this.getEventIndexInGroup(day, appointment);
+    const totalEvents = eventsAtSameTime.length;
+
+    if (totalEvents > 1) {
+      // Multiple events at the same time - stack them horizontally
+      // Use percentage-based positioning with small gaps
+      const gapPercent = 0.5; // Small gap as percentage (0.5% between events)
+      const marginPercent = 1; // Margin from edges (1%)
+      const totalGaps = (totalEvents - 1) * gapPercent;
+      const availableWidth = 100 - (marginPercent * 2) - totalGaps;
+      const eventWidthPercent = availableWidth / totalEvents;
+
+      // Calculate left position: margin + (index * (width + gap))
+      const leftPercent = marginPercent + (eventIndex * (eventWidthPercent + gapPercent));
+
+      return {
+        top: `${topPixels}px`,
+        height: `${heightPixels}px`,
+        left: `${leftPercent}%`,
+        width: `${eventWidthPercent}%`,
+      };
+    }
+
+    // Single event - use full width with small margins
+    return {
+      top: `${topPixels}px`,
+      height: `${heightPixels}px`,
+      left: '8px',
+      right: '8px',
+      width: 'auto',
+    };
+  }
+
+  /**
+   * Get day names for week view (Sunday to Saturday)
+   */
+  protected getWeekDayNames(): string[] {
+    const locale = this.languageService.currentLanguage() === 'ar' ? 'ar-SA' : 'en-US';
+    const date = new Date(2024, 0, 7); // January 7, 2024 is a Sunday
+    const dayNames: string[] = [];
+
+    for (let i = 0; i < 7; i++) {
+      const dayDate = new Date(date);
+      dayDate.setDate(date.getDate() + i);
+      const dayName = dayDate.toLocaleDateString(locale, { weekday: 'long' });
+      dayNames.push(dayName.toUpperCase());
+    }
+
+    return dayNames;
+  }
+
+  /**
+   * Get formatted day header (e.g., "SUNDAY 4")
+   */
+  protected getDayHeader(day: Date): string {
+    const locale = this.languageService.currentLanguage() === 'ar' ? 'ar-SA' : 'en-US';
+    const dayName = day.toLocaleDateString(locale, { weekday: 'long' }).toUpperCase();
+    const dayNumber = day.getDate();
+    return `${dayName} ${dayNumber}`;
   }
 
   /**
@@ -277,7 +521,7 @@ export class CalendarPage implements OnInit, OnDestroy {
    * Get appointments for a specific date
    * Formats date as YYYY-MM-DD using local timezone to avoid UTC conversion issues
    */
-  private getAppointmentsForDate(date: Date): Appointment[] {
+  protected getAppointmentsForDate(date: Date): Appointment[] {
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
@@ -369,7 +613,12 @@ export class CalendarPage implements OnInit, OnDestroy {
     if (view === 'monthly') {
       date.setMonth(date.getMonth() - 1);
     } else if (view === 'weekly') {
-      date.setDate(date.getDate() - 7);
+      // Go to previous Sunday
+      const sunday = this.getSunday(date);
+      sunday.setDate(sunday.getDate() - 7);
+      this.currentDate.set(sunday);
+      this.generateCalendarDays();
+      return;
     } else {
       date.setDate(date.getDate() - 1);
     }
@@ -388,7 +637,12 @@ export class CalendarPage implements OnInit, OnDestroy {
     if (view === 'monthly') {
       date.setMonth(date.getMonth() + 1);
     } else if (view === 'weekly') {
-      date.setDate(date.getDate() + 7);
+      // Go to next Sunday
+      const sunday = this.getSunday(date);
+      sunday.setDate(sunday.getDate() + 7);
+      this.currentDate.set(sunday);
+      this.generateCalendarDays();
+      return;
     } else {
       date.setDate(date.getDate() + 1);
     }
