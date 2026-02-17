@@ -3,7 +3,7 @@ import { Patient } from "../models/patient.interface";
 export const patients: Patient[] = [
   {
     id: 'BN000',
-    name: 'Mahmoud Morsi',
+    name: 'Moaz  Gamal',
     dateOfBirth: '15/07/2003',
     gender: 'Male',
     assignedDentist: null,
@@ -23,7 +23,7 @@ export const patients: Patient[] = [
   },
   {
     id: 'BN001',
-    name: 'Mohamed Hesham',
+    name: 'Saad Mohamed',
     dateOfBirth: '00/00/00',
     gender: 'Female',
     assignedDentist: null,
@@ -43,7 +43,7 @@ export const patients: Patient[] = [
   },
   {
     id: 'BN002',
-    name: 'Mohamed Ehab',
+    name: 'Karem Salah',
     dateOfBirth: '00/00/00',
     gender: 'Female',
     assignedDentist: null,
@@ -63,7 +63,7 @@ export const patients: Patient[] = [
   },
   {
     id: 'BN003',
-    name: 'Mohamed Ali',
+    name: 'Mohamed Ahmed',
     dateOfBirth: '00/00/00',
     gender: 'Male',
     assignedDentist: null,
@@ -103,7 +103,7 @@ export const patients: Patient[] = [
   },
   {
     id: 'BN005',
-    name: 'Mohamed Mostafa',
+    name: 'Ali yasser',
     dateOfBirth: '00/00/00',
     gender: 'Female',
     assignedDentist: null,
@@ -123,7 +123,7 @@ export const patients: Patient[] = [
   },
   {
     id: 'BN006',
-    name: 'Mohamed Adel',
+    name: 'Mona Ali',
     dateOfBirth: '00/00/00',
     gender: 'Male',
     assignedDentist: null,
@@ -143,7 +143,7 @@ export const patients: Patient[] = [
   },
   {
     id: 'BN007',
-    name: 'Mohamed Amr',
+    name: 'Mohamed karem',
     dateOfBirth: '00/00/00',
     gender: 'Female',
     assignedDentist: null,
@@ -183,7 +183,7 @@ export const patients: Patient[] = [
   },
   {
     id: 'BN009',
-    name: 'Mohamed Mohamed',
+    name: 'Mohamed Ahmed ',
     dateOfBirth: '00/00/00',
     gender: 'Male',
     assignedDentist: null,
@@ -203,7 +203,7 @@ export const patients: Patient[] = [
   },
   {
     id: 'BN010',
-    name: 'Mohamed Mohamed',
+    name: 'Mohamed Khaled',
     dateOfBirth: '00/00/00',
     gender: 'Male',
     assignedDentist: null,
@@ -223,7 +223,7 @@ export const patients: Patient[] = [
   },
   {
     id: 'BN011',
-    name: 'Mohamed Mohamed',
+    name: 'Mohamed Yasser',
     dateOfBirth: '00/00/00',
     gender: 'Male',
     assignedDentist: null,
@@ -243,7 +243,7 @@ export const patients: Patient[] = [
   },
   {
     id: 'BN012',
-    name: 'Mohamed Mohamed',
+    name: 'Mohamed Malek',
     dateOfBirth: '00/00/00',
     gender: 'Male',
     assignedDentist: null,
@@ -283,7 +283,7 @@ export const patients: Patient[] = [
   },
   {
     id: 'BN014',
-    name: 'Mohamed Mohamed',
+    name: 'Mohamed younes',
     dateOfBirth: '00/00/00',
     gender: 'Male',
     assignedDentist: null,
