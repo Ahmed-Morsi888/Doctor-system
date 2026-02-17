@@ -5,7 +5,7 @@ export const reservations: Reservation[] = [
     reservationId: 'RES-2026-00045',
     patient: {
       id: 'PAT-556',
-      name: 'Mohamed Alkayal',
+      name: 'Moaz Gamal',
       phone: '01012345678',
     },
     appointment: {
@@ -33,7 +33,7 @@ export const reservations: Reservation[] = [
     reservationId: 'RES-2026-00045',
     patient: {
       id: 'PAT-556',
-      name: 'Mohamed Alkayal',
+      name: 'Moaz Gamal',
       phone: '01012345678',
     },
     appointment: {
@@ -61,7 +61,7 @@ export const reservations: Reservation[] = [
     reservationId: 'RES-2026-00045',
     patient: {
       id: 'PAT-556',
-      name: 'Mohamed Alkayal',
+      name: 'Moaz Gamal',
       phone: '01012345678',
     },
     appointment: {
@@ -89,7 +89,7 @@ export const reservations: Reservation[] = [
     reservationId: 'RES-2026-00045',
     patient: {
       id: 'PAT-556',
-      name: 'Mohamed Alkayal',
+      name: 'Moaz Gamal',
       phone: '01012345678',
     },
     appointment: {
@@ -117,7 +117,7 @@ export const reservations: Reservation[] = [
     reservationId: 'RES-2026-00045',
     patient: {
       id: 'PAT-556',
-      name: 'Mohamed Alkayal',
+      name: 'Moaz Gamal',
       phone: '01012345678',
     },
     appointment: {
@@ -145,7 +145,7 @@ export const reservations: Reservation[] = [
     reservationId: 'RES-2026-00045',
     patient: {
       id: 'PAT-556',
-      name: 'Mohamed Alkayal',
+      name: 'Moaz Gamal',
       phone: '01012345678',
     },
     appointment: {
@@ -173,7 +173,7 @@ export const reservations: Reservation[] = [
     reservationId: 'RES-2026-00045',
     patient: {
       id: 'PAT-556',
-      name: 'Mohamed Alkayal',
+      name: 'Moaz Gamal',
       phone: '01012345678',
     },
     appointment: {
@@ -201,7 +201,7 @@ export const reservations: Reservation[] = [
     reservationId: 'RES-2026-00045',
     patient: {
       id: 'PAT-556',
-      name: 'Mohamed Alkayal',
+      name: 'Moaz Gamal',
       phone: '01012345678',
     },
     appointment: {
@@ -229,7 +229,7 @@ export const reservations: Reservation[] = [
     reservationId: 'RES-2026-00045',
     patient: {
       id: 'PAT-556',
-      name: 'Mohamed Alkayal',
+      name: 'Moaz Gamal',
       phone: '01012345678',
     },
     appointment: {
@@ -257,7 +257,7 @@ export const reservations: Reservation[] = [
     reservationId: 'RES-2026-00045',
     patient: {
       id: 'PAT-556',
-      name: 'Mohamed Alkayal',
+      name: 'Moaz Gamal',
       phone: '01012345678',
     },
     appointment: {
@@ -285,7 +285,7 @@ export const reservations: Reservation[] = [
     reservationId: 'RES-2026-00045',
     patient: {
       id: 'PAT-556',
-      name: 'Mohamed Alkayal',
+      name: 'Moaz Gamal',
       phone: '01012345678',
     },
     appointment: {
@@ -313,7 +313,7 @@ export const reservations: Reservation[] = [
     reservationId: 'RES-2026-00045',
     patient: {
       id: 'PAT-556',
-      name: 'Mohamed Alkayal',
+      name: 'Moaz Gamal',
       phone: '01012345678',
     },
     appointment: {
