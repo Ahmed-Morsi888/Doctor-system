@@ -54,7 +54,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-002',
-    patientName: 'Mohamed Hesham',
+    patientName: 'Moaz Gamal',
     date: '2026-01-03',
     startTime: '09:00',
     endTime: '09:30',
@@ -63,7 +63,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-003',
-    patientName: 'Mohamed Ehab',
+    patientName: 'Moaz Gamal',
     date: '2026-01-03',
     startTime: '10:00',
     endTime: '10:30',
@@ -72,7 +72,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-004',
-    patientName: 'Mohamed Ali',
+    patientName: 'Moaz Gamal',
     date: '2026-01-03',
     startTime: '11:00',
     endTime: '11:30',
@@ -81,7 +81,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-005',
-    patientName: 'Mohamed Ahmed',
+    patientName: 'Moaz Gamal',
     date: '2026-01-03',
     startTime: '14:00',
     endTime: '14:30',
@@ -90,7 +90,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-006',
-    patientName: 'Mohamed Mostafa',
+    patientName: 'Moaz Gamal',
     date: '2026-01-03',
     startTime: '15:00',
     endTime: '15:30',
@@ -99,7 +99,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-007',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-03',
     startTime: '16:00',
     endTime: '16:30',
@@ -108,7 +108,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-008',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal  ',
     date: '2026-01-03',
     startTime: '17:00',
     endTime: '17:30',
@@ -119,7 +119,7 @@ export const appointments: Appointment[] = [
   // July 2, 2024
   {
     id: 'APT-009',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-04',
     startTime: '09:00',
     endTime: '09:30',
@@ -128,7 +128,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-010',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-04',
     startTime: '09:00',
     endTime: '09:30',
@@ -137,7 +137,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-011',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-04',
     startTime: '10:00',
     endTime: '10:30',
@@ -146,7 +146,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-012',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-04',
     startTime: '11:00',
     endTime: '11:30',
@@ -155,7 +155,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-013',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-04',
     startTime: '14:00',
     endTime: '14:30',
@@ -164,7 +164,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-014',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-04',
     startTime: '15:00',
     endTime: '15:30',
@@ -173,7 +173,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-015',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-04',
     startTime: '16:00',
     endTime: '16:30',
@@ -182,7 +182,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-016',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-04',
     startTime: '17:00',
     endTime: '17:30',
@@ -191,7 +191,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-017',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-04',
     startTime: '18:00',
     endTime: '18:30',
@@ -202,7 +202,7 @@ export const appointments: Appointment[] = [
   // July 3, 2024
   {
     id: 'APT-018',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-05',
     startTime: '09:00',
     endTime: '09:30',
@@ -211,7 +211,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-019',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-05',
     startTime: '09:00',
     endTime: '09:30',
@@ -220,7 +220,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-020',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-05',
     startTime: '10:00',
     endTime: '10:30',
@@ -229,7 +229,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-021',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-05',
     startTime: '11:00',
     endTime: '11:30',
@@ -238,7 +238,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-022',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-05',
     startTime: '14:00',
     endTime: '14:30',
@@ -247,7 +247,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-023',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-05',
     startTime: '15:00',
     endTime: '15:30',
@@ -256,7 +256,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-024',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal  ',
     date: '2026-01-05',
     startTime: '16:00',
     endTime: '16:30',
@@ -267,7 +267,7 @@ export const appointments: Appointment[] = [
   // July 4, 2024
   {
     id: 'APT-025',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-06',
     startTime: '09:00',
     endTime: '09:30',
@@ -276,7 +276,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-026',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-06',
     startTime: '09:30',
     endTime: '10:00',
@@ -285,7 +285,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-027',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-06',
     startTime: '10:00',
     endTime: '10:30',
@@ -294,7 +294,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-028',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-06',
     startTime: '11:00',
     endTime: '11:30',
@@ -305,7 +305,7 @@ export const appointments: Appointment[] = [
   // July 5, 2024
   {
     id: 'APT-029',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-07',
     startTime: '09:00',
     endTime: '09:30',
@@ -314,7 +314,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-030',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-07',
     startTime: '09:00',
     endTime: '09:30',
@@ -323,7 +323,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-031',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal  ',
     date: '2026-01-07',
     startTime: '10:00',
     endTime: '10:30',
@@ -332,7 +332,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-032',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-07',
     startTime: '11:00',
     endTime: '11:30',
@@ -341,7 +341,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-033',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-07',
     startTime: '14:00',
     endTime: '14:30',
@@ -350,7 +350,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-034',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-07',
     startTime: '15:00',
     endTime: '15:30',
@@ -361,7 +361,7 @@ export const appointments: Appointment[] = [
   // July 6, 2024
   {
     id: 'APT-035',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-08',
     startTime: '09:00',
     endTime: '09:30',
@@ -370,7 +370,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-036',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-08',
     startTime: '09:00',
     endTime: '09:30',
@@ -379,7 +379,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-037',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-08',
     startTime: '10:00',
     endTime: '10:30',
@@ -388,7 +388,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-038',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal  ',
     date: '2026-01-08',
     startTime: '11:00',
     endTime: '11:30',
@@ -399,7 +399,7 @@ export const appointments: Appointment[] = [
   // July 8, 2024
   {
     id: 'APT-039',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-10',
     startTime: '09:00',
     endTime: '09:30',
@@ -408,7 +408,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-040',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-10',
     startTime: '09:00',
     endTime: '09:30',
@@ -417,7 +417,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-041',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal  ',
     date: '2026-01-10',
     startTime: '10:00',
     endTime: '10:30',
@@ -428,7 +428,7 @@ export const appointments: Appointment[] = [
   // July 9, 2024
   {
     id: 'APT-042',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-11',
     startTime: '09:00',
     endTime: '09:30',
@@ -437,7 +437,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-043',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-11',
     startTime: '09:00',
     endTime: '09:30',
@@ -446,7 +446,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-044',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-11',
     startTime: '10:00',
     endTime: '10:30',
@@ -455,7 +455,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-045',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-11',
     startTime: '11:00',
     endTime: '11:30',
@@ -464,7 +464,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-046',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-11',
     startTime: '14:00',
     endTime: '14:30',
@@ -475,7 +475,7 @@ export const appointments: Appointment[] = [
   // July 10, 2024
   {
     id: 'APT-047',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-12',
     startTime: '09:00',
     endTime: '09:30',
@@ -484,7 +484,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-048',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-12',
     startTime: '09:00',
     endTime: '09:30',
@@ -493,7 +493,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-049',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-12',
     startTime: '10:00',
     endTime: '10:30',
@@ -502,7 +502,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-050',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-12',
     startTime: '11:00',
     endTime: '11:30',
@@ -511,7 +511,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-051',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-12',
     startTime: '14:00',
     endTime: '14:30',
@@ -520,7 +520,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-052',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-12',
     startTime: '15:00',
     endTime: '15:30',
@@ -529,7 +529,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-053',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-12',
     startTime: '16:00',
     endTime: '16:30',
@@ -538,7 +538,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-054',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-12',
     startTime: '17:00',
     endTime: '17:30',
@@ -547,7 +547,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-055',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-12',
     startTime: '18:00',
     endTime: '18:30',
@@ -558,7 +558,7 @@ export const appointments: Appointment[] = [
   // July 11, 2024 (Today)
   {
     id: 'APT-056',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-13',
     startTime: '09:00',
     endTime: '09:30',
@@ -567,7 +567,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-057',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-13',
     startTime: '10:00',
     endTime: '10:30',
@@ -576,7 +576,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-058',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-13',
     startTime: '11:00',
     endTime: '11:30',
@@ -585,7 +585,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-059',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-13',
     startTime: '14:00',
     endTime: '14:30',
@@ -594,7 +594,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-060',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-13',
     startTime: '15:00',
     endTime: '15:30',
@@ -605,7 +605,7 @@ export const appointments: Appointment[] = [
   // July 12, 2024
   {
     id: 'APT-061',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-14',
     startTime: '10:00',
     endTime: '10:30',
@@ -614,7 +614,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-062',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-14',
     startTime: '10:00',
     endTime: '10:30',
@@ -623,7 +623,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-063',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal  ',
     date: '2026-01-14',
     startTime: '11:00',
     endTime: '11:30',
@@ -634,7 +634,7 @@ export const appointments: Appointment[] = [
   // July 13, 2024
   {
     id: 'APT-064',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-15',
     startTime: '09:00',
     endTime: '09:30',
@@ -643,7 +643,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-065',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-15',
     startTime: '09:00',
     endTime: '09:30',
@@ -652,7 +652,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-066',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-15',
     startTime: '10:00',
     endTime: '10:30',
@@ -661,7 +661,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-067',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-15',
     startTime: '11:00',
     endTime: '11:30',
@@ -670,7 +670,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-068',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-15',
     startTime: '14:00',
     endTime: '14:30',
@@ -681,7 +681,7 @@ export const appointments: Appointment[] = [
   // July 15, 2024
   {
     id: 'APT-069',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-17',
     startTime: '09:00',
     endTime: '09:30',
@@ -690,7 +690,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-070',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-17',
     startTime: '09:00',
     endTime: '09:30',
@@ -699,7 +699,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-071',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-17',
     startTime: '10:00',
     endTime: '10:30',
@@ -708,7 +708,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-072',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-17',
     startTime: '11:00',
     endTime: '11:30',
@@ -717,7 +717,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-073',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-17',
     startTime: '14:00',
     endTime: '14:30',
@@ -726,7 +726,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-074',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-17',
     startTime: '15:00',
     endTime: '15:30',
@@ -735,7 +735,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-075',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-17',
     startTime: '16:00',
     endTime: '16:30',
@@ -744,7 +744,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-076',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-17',
     startTime: '17:00',
     endTime: '17:30',
@@ -753,7 +753,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-077',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-17',
     startTime: '18:00',
     endTime: '18:30',
@@ -762,7 +762,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-078',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-17',
     startTime: '19:00',
     endTime: '19:30',
@@ -771,7 +771,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-079',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-17',
     startTime: '20:00',
     endTime: '20:30',
@@ -782,7 +782,7 @@ export const appointments: Appointment[] = [
   // July 16, 2024
   {
     id: 'APT-080',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-18',
     startTime: '09:00',
     endTime: '09:30',
@@ -791,7 +791,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-081',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-18',
     startTime: '09:00',
     endTime: '09:30',
@@ -800,7 +800,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-082',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-18',
     startTime: '10:00',
     endTime: '10:30',
@@ -809,7 +809,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-083',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-18',
     startTime: '11:00',
     endTime: '11:30',
@@ -818,7 +818,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-084',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-18',
     startTime: '14:00',
     endTime: '14:30',
@@ -827,7 +827,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-085',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-18',
     startTime: '15:00',
     endTime: '15:30',
@@ -836,7 +836,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-086',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-18',
     startTime: '16:00',
     endTime: '16:30',
@@ -845,7 +845,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-087',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-18',
     startTime: '17:00',
     endTime: '17:30',
@@ -856,7 +856,7 @@ export const appointments: Appointment[] = [
   // July 17, 2024
   {
     id: 'APT-088',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-19',
     startTime: '09:00',
     endTime: '09:30',
@@ -865,7 +865,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-089',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-19',
     startTime: '09:00',
     endTime: '09:30',
@@ -874,7 +874,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-090',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-19',
     startTime: '10:00',
     endTime: '10:30',
@@ -883,7 +883,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-091',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-19',
     startTime: '11:00',
     endTime: '11:30',
@@ -894,7 +894,7 @@ export const appointments: Appointment[] = [
   // July 18, 2024
   {
     id: 'APT-092',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-20',
     startTime: '09:00',
     endTime: '09:30',
@@ -903,7 +903,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-093',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-20',
     startTime: '09:00',
     endTime: '09:30',
@@ -912,7 +912,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-094',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-20',
     startTime: '10:00',
     endTime: '10:30',
@@ -921,7 +921,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-095',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-20',
     startTime: '11:00',
     endTime: '11:30',
@@ -930,7 +930,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-096',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-20',
     startTime: '14:00',
     endTime: '14:30',
@@ -939,7 +939,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-097',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-20',
     startTime: '15:00',
     endTime: '15:30',
@@ -948,7 +948,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-098',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-20',
     startTime: '16:00',
     endTime: '16:30',
@@ -957,7 +957,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-099',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-20',
     startTime: '17:00',
     endTime: '17:30',
@@ -966,7 +966,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-100',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-20',
     startTime: '18:00',
     endTime: '18:30',
@@ -975,7 +975,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-101',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-20',
     startTime: '19:00',
     endTime: '19:30',
@@ -984,7 +984,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-102',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-20',
     startTime: '20:00',
     endTime: '20:30',
@@ -995,7 +995,7 @@ export const appointments: Appointment[] = [
   // July 19, 2024
   {
     id: 'APT-103',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-21',
     startTime: '09:00',
     endTime: '09:30',
@@ -1004,7 +1004,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-104',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-21',
     startTime: '09:00',
     endTime: '09:30',
@@ -1013,7 +1013,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-105',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-21',
     startTime: '10:00',
     endTime: '10:30',
@@ -1024,7 +1024,7 @@ export const appointments: Appointment[] = [
   // July 20, 2024
   {
     id: 'APT-106',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-22',
     startTime: '09:00',
     endTime: '09:30',
@@ -1033,7 +1033,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-107',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-22',
     startTime: '09:00',
     endTime: '09:30',
@@ -1042,7 +1042,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-108',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-22',
     startTime: '10:00',
     endTime: '10:30',
@@ -1051,7 +1051,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-109',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-22',
     startTime: '11:00',
     endTime: '11:30',
@@ -1060,7 +1060,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-110',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-22',
     startTime: '14:00',
     endTime: '14:30',
@@ -1069,7 +1069,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-111',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-22',
     startTime: '15:00',
     endTime: '15:30',
@@ -1078,7 +1078,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-112',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-22',
     startTime: '16:00',
     endTime: '16:30',
@@ -1087,7 +1087,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-113',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-22',
     startTime: '17:00',
     endTime: '17:30',
@@ -1096,7 +1096,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-114',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-22',
     startTime: '18:00',
     endTime: '18:30',
@@ -1105,7 +1105,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-115',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-22',
     startTime: '19:00',
     endTime: '19:30',
@@ -1114,7 +1114,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-116',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-22',
     startTime: '20:00',
     endTime: '20:30',
@@ -1125,7 +1125,7 @@ export const appointments: Appointment[] = [
   // July 22, 2024
   {
     id: 'APT-117',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-23',
     startTime: '09:00',
     endTime: '09:30',
@@ -1134,7 +1134,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-118',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-23',
     startTime: '09:00',
     endTime: '09:30',
@@ -1143,7 +1143,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-119',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-23',
     startTime: '10:00',
     endTime: '10:30',
@@ -1152,7 +1152,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-120',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-23',
     startTime: '11:00',
     endTime: '11:30',
@@ -1161,7 +1161,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-121',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-23',
     startTime: '14:00',
     endTime: '14:30',
@@ -1170,7 +1170,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-122',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-23',
     startTime: '15:00',
     endTime: '15:30',
@@ -1179,7 +1179,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-123',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-23',
     startTime: '16:00',
     endTime: '16:30',
@@ -1188,7 +1188,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-124',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-23',
     startTime: '17:00',
     endTime: '17:30',
@@ -1199,7 +1199,7 @@ export const appointments: Appointment[] = [
   // July 23, 2024
   {
     id: 'APT-125',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-23',
     startTime: '09:00',
     endTime: '09:30',
@@ -1208,7 +1208,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-126',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-23',
     startTime: '09:00',
     endTime: '09:30',
@@ -1217,7 +1217,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-127',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-23',
     startTime: '10:00',
     endTime: '10:30',
@@ -1226,7 +1226,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-128',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-23',
     startTime: '11:00',
     endTime: '11:30',
@@ -1235,7 +1235,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-129',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-23',
     startTime: '14:00',
     endTime: '14:30',
@@ -1246,7 +1246,7 @@ export const appointments: Appointment[] = [
   // July 25, 2024
   {
     id: 'APT-130',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-25',
     startTime: '09:00',
     endTime: '09:30',
@@ -1257,7 +1257,7 @@ export const appointments: Appointment[] = [
   // July 26, 2024
   {
     id: 'APT-131',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-26',
     startTime: '09:00',
     endTime: '09:30',
@@ -1266,7 +1266,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-132',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-26',
     startTime: '09:00',
     endTime: '09:30',
@@ -1275,7 +1275,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-133',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-26',
     startTime: '10:00',
     endTime: '10:30',
@@ -1284,7 +1284,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-134',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-26',
     startTime: '11:00',
     endTime: '11:30',
@@ -1295,7 +1295,7 @@ export const appointments: Appointment[] = [
   // July 27, 2024
   {
     id: 'APT-135',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-27',
     startTime: '09:00',
     endTime: '09:30',
@@ -1304,7 +1304,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-136',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-27',
     startTime: '09:00',
     endTime: '09:30',
@@ -1313,7 +1313,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-137',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-27',
     startTime: '10:00',
     endTime: '10:30',
@@ -1322,7 +1322,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-138',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-27',
     startTime: '11:00',
     endTime: '11:30',
@@ -1331,7 +1331,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-139',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-27',
     startTime: '14:00',
     endTime: '14:30',
@@ -1342,7 +1342,7 @@ export const appointments: Appointment[] = [
   // July 29, 2024
   {
     id: 'APT-140',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-29',
     startTime: '09:00',
     endTime: '09:30',
@@ -1351,7 +1351,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-141',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-29',
     startTime: '09:00',
     endTime: '09:30',
@@ -1360,7 +1360,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-142',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-29',
     startTime: '10:00',
     endTime: '10:30',
@@ -1369,7 +1369,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-143',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-29',
     startTime: '11:00',
     endTime: '11:30',
@@ -1380,7 +1380,7 @@ export const appointments: Appointment[] = [
   // July 30, 2024
   {
     id: 'APT-144',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-30',
     startTime: '09:00',
     endTime: '09:30',
@@ -1389,7 +1389,7 @@ export const appointments: Appointment[] = [
   },
   {
     id: 'APT-145',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-30',
     startTime: '09:00',
     endTime: '09:30',
@@ -1400,7 +1400,7 @@ export const appointments: Appointment[] = [
   // July 31, 2024
   {
     id: 'APT-146',
-    patientName: 'Mohamed Adel',
+    patientName: 'Moaz Gamal',
     date: '2026-01-31',
     startTime: '09:00',
     endTime: '09:30',
